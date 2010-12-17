@@ -1,0 +1,32 @@
+<div id="joinimg" class="joinimg">
+    <%= image_tag(image_path("joinnowpic.gif")) %>
+</div>
+<div id="joinhead" class="joinhead">
+    <h1>Dados do dentista</h1>
+    <div id="login" class="login">
+        <% form_for(@dentista) do |f| %>
+        <%= f.error_messages %>
+        <table width="200" border="0">
+            <tr>
+                <td>
+                    Nome
+                </td>
+                <td>
+                    <%= f.text_field :den_nome %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td align="right">
+                    <%= f.submit 'Salvar', :class=>"button" %>
+                </td>
+            </tr>
+        </table>
+        <% end %>
+    </div>
+    <% link_to dentistas_path do %>
+    <%= image_tag(image_path("page_back.png")) %>Voltar<% end %>
+    <% link_to @dentista do %>
+    <%= image_tag(image_path("page.png")) %>Visualizar<% end %>
+</div>

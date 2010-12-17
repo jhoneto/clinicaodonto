@@ -1,0 +1,23 @@
+<p>
+  <b>Dentista:</b>
+  <%=h @ficha.dentista_id %>
+</p>
+
+<p>
+  <b>Paciente:</b>
+  <%=h @ficha.paciente_id %>
+</p>
+
+<p>
+  <b>Fic data:</b>
+  <%=h @ficha.fic_data %>
+</p>
+
+<p>
+  <b>Fic desc:</b>
+  <%=h @ficha.fic_desc %>
+</p>
+
+
+<%= link_to 'Edit', edit_ficha_path(@ficha) %> |
+<%= link_to 'Back', fichas_path %>

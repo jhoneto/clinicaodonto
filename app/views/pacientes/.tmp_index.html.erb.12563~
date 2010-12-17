@@ -1,0 +1,29 @@
+<h1>Listing pacientes</h1>
+
+<table>
+  <tr>
+    <th>Pac nome</th>
+    <th>Pac fone</th>
+    <th>Pac celular</th>
+    <th>Pac observacao</th>
+    <th>Clinica</th>
+  </tr>
+
+<!--% @pacientes.each do |paciente| %-->
+  <%= will_paginate @pacientes, :container => false %>
+  <tr>
+    <td><%=h paciente.pac_nome %></td>
+    <td><%=h paciente.pac_fone %></td>
+    <td><%=h paciente.pac_celular %></td>
+    <td><%=h paciente.pac_observacao %></td>
+    <td><%=h paciente.clinica_id %></td>
+    <td><%= link_to 'Show', paciente %></td>
+    <td><%= link_to 'Edit', edit_paciente_path(paciente) %></td>
+    <td><%= link_to 'Destroy', paciente, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New paciente', new_paciente_path %>

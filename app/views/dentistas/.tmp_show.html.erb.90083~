@@ -1,0 +1,18 @@
+<div id="joinimg" class="joinimg">
+    <%= image_tag(image_path("joinnowpic.gif")) %>
+</div>
+<div id="joinhead" class="joinhead">
+    <h1>Dados do dentista</h1>
+    <div id="login" class="login">
+        <p>
+            <b>Nome:</b>
+            <%=h @dentista.den_nome %>
+        </p>
+    </div>
+    <p>
+        <% link_to dentistas_path do %>
+        <%= image_tag(image_path("page_back.png")) %>Voltar<% end %>
+        <% link_to edit_dentista_path(@dentista) do %>
+        <%= image_tag(image_path("page_edit.png")) %>Alterar<% end %>
+    </p>
+</div>

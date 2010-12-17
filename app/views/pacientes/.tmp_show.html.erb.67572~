@@ -1,0 +1,28 @@
+<p>
+  <b>Pac nome:</b>
+  <%=h @paciente.pac_nome %>
+</p>
+
+<p>
+  <b>Pac fone:</b>
+  <%=h @paciente.pac_fone %>
+</p>
+
+<p>
+  <b>Pac celular:</b>
+  <%=h @paciente.pac_celular %>
+</p>
+
+<p>
+  <b>Pac observacao:</b>
+  <%=h @paciente.pac_observacao %>
+</p>
+
+<p>
+  <b>Clinica:</b>
+  <%=h @paciente.clinica_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_paciente_path(@paciente) %> |
+<%= link_to 'Back', pacientes_path %>

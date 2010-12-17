@@ -1,0 +1,90 @@
+<div id="join" class="join">
+    <div id="joinimg" class="joinimg">
+        <img src="../images/joinnowpic.gif">
+    </div>
+    <div id="joinhead" class="joinhead">
+        <h1>Novo usuário</h1>
+		<% form_for(@usuario) do |f| %>
+        <div id="login" class="login">
+            <table>
+            	<tr>
+                    <td>
+                        <%= f.label :teste, "Clínica" %>
+                    </td>
+                    <td>
+                        <%= f.text_field :clinica_id %>
+                    </td>
+                </tr>
+            	<tr>
+                    <td>
+                        <%= f.label :usu_nome, "Nome" %>
+                    </td>
+                    <td>
+                        <%= f.text_field :usu_nome %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <%= f.label :usu_email, "Email" %>
+                    </td>
+                    <td>
+                        <%= f.text_field :usu_email %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <%= f.label :usu_login, "Login" %>
+                    </td>
+                    <td>
+                        <%= f.text_field :usu_login %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <%= f.label :usu_senha, "Senha" %>
+                    </td>
+                    <td>
+                        <%= f.password_field :usu_senha %>
+                    </td>
+                </tr>				
+                <tr>
+                    <td>
+                    </td>
+                    <td align="right">
+                    	<%= f.submit 'Salvar', :class=>"button"%>
+                    </td>
+                </tr>
+            </table>
+        </div>
+		<% end %>
+    </div>
+</div>
+<!--
+<div id="joinhead">
+<h1>Novo usuário</h1>
+</div>
+</br>
+<div id="login">
+<div id="loginbox">
+<% form_for(@usuario) do |f| %>
+<%= f.error_messages %>
+<p>
+<%= f.label :usu_nome, "Nome" %>
+<%= f.text_field :usu_nome %>
+</p>
+<p>
+<%= f.label :usu_email, "Email" %>
+<%= f.text_field :usu_email %>
+</p>
+<p>
+<%= f.label :usu_senha, "Senha" %>
+<%= f.text_field :usu_senha %>
+</p>
+<p>
+<%= f.submit 'Novo' %>
+</p>
+<% end %>
+<%= link_to 'Back', usuarios_path %>
+</div>
+</div>
+-->

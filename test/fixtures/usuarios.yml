@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  usu_nome: MyString
+  usu_email: MyString
+  usu_senha: MyString
+  clinica_id: 1
+
+two:
+  usu_nome: MyString
+  usu_email: MyString
+  usu_senha: MyString
+  clinica_id: 1

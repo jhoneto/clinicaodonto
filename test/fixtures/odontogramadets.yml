@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  odontograma_id: 1
+  odd_dente: 1
+  odd_data: 2010-12-08
+  odd_acao: 1
+
+two:
+  odontograma_id: 1
+  odd_dente: 1
+  odd_data: 2010-12-08
+  odd_acao: 1

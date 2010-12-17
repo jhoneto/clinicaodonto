@@ -1,0 +1,28 @@
+<h1>Editing ficha</h1>
+
+<% form_for(@ficha) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :dentista_id %><br />
+    <%= f.text_field :dentista_id %>
+  </p>
+  <p>
+    <%= f.label :paciente_id %><br />
+    <%= f.text_field :paciente_id %>
+  </p>
+  <p>
+    <%= f.label :fic_data %><br />
+    <%= f.date_select :fic_data %>
+  </p>
+  <p>
+    <%= f.label :fic_desc %><br />
+    <%= f.text_area :fic_desc %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @ficha %> |
+<%= link_to 'Back', fichas_path %>

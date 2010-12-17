@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  dentista_id: 1
+  paciente_id: 1
+  fic_data: 2010-12-01
+  fic_desc: MyText
+
+two:
+  dentista_id: 1
+  paciente_id: 1
+  fic_data: 2010-12-01
+  fic_desc: MyText
