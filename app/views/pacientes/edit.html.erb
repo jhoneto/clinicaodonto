@@ -20,7 +20,8 @@
                     Fone
                 </td>
                 <td>
-                    <%= f.text_field :pac_fone %>
+                   <!-- <%= f.text_field :pac_fone, :mask => :phone %> -->
+				   <%= masked_text_field(:paciente, :pac_fone, :size => 14, :mask => :phone) %>
                 </td>
             </tr>
             <tr>
@@ -28,7 +29,40 @@
                     Celular
                 </td>
                 <td>
-                    <%= f.text_field :pac_celular %>
+                    <!-- <%= f.text_field :pac_celular %> -->
+					<%= masked_text_field(:paciente, :pac_celular, :size => 14, :mask => :phone) %>
+                </td>
+            </tr>
+			<tr>
+                <td>
+                    Endereço
+                </td>
+                <td>
+                    <%= f.text_field :pac_endereco %>
+                </td>
+            </tr>
+			<tr>
+                <td>
+                    Bairro
+                </td>
+                <td>
+                    <%= f.text_field :pac_bairro %>
+                </td>
+            </tr>
+			<tr>
+                <td>
+                    Cidade
+                </td>
+                <td>
+                    <%= f.text_field :pac_cidade %>
+                </td>
+            </tr>
+			<tr>
+                <td>
+                    Estado
+                </td>
+                <td>
+                    <%= f.text_field :pac_uf %>
                 </td>
             </tr>
             <tr>

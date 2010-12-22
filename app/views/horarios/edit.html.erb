@@ -1,0 +1,28 @@
+<h1>Editing horario</h1>
+
+<% form_for(@horario) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :dentista_id %><br />
+    <%= f.text_field :dentista_id %>
+  </p>
+  <p>
+    <%= f.label :hor_dia %><br />
+    <%= f.text_field :hor_dia %>
+  </p>
+  <p>
+    <%= f.label :hor_horaini %><br />
+    <%= f.time_select :hor_horaini %>
+  </p>
+  <p>
+    <%= f.label :hor_horafim %><br />
+    <%= f.time_select :hor_horafim %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @horario %> |
+<%= link_to 'Back', horarios_path %>

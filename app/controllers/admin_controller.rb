@@ -9,6 +9,7 @@ class AdminController < ApplicationController
       session[:usuario_nome] = nil
       session[:usuario_id] = nil
       session[:clinica_id] = nil
+      session[:usuario_admin] = nil
       @usuario = Usuario.new
     else
       @usuario = Usuario.new(params[:usuario])
@@ -17,6 +18,7 @@ class AdminController < ApplicationController
         session[:usuario_nome] = dados.usu_nome
         session[:usuario_id] = dados.id
         session[:clinica_id] = dados.clinica_id
+        session[:usuario_admin] = dados.usu_admin
         redirect_to(:controller => :home, :action => :index)
       else
         #flash[:aviso] = "Dados inválidos"

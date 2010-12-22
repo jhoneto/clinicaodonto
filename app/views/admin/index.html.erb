@@ -19,7 +19,7 @@
     </div>
     <div id="joinhead" class="joinhead">
         <h1>Acesse Já</h1>
-        <%= link_to "(não é cadastrado click aqui)", :controller => :usuarios, :action=>:new %>
+        <%= link_to "(não é cadastrado click aqui)", :controller => :usuarios, :action=>:new, :novo=> "1" %>
         <div id="login" class="login">
           <% form_for :usuario, :url => { :action => :login } do |form| %>
             <table>

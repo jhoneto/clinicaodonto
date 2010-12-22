@@ -1,7 +1,7 @@
 class UsuariosController < ApplicationController
   def new
     @usuario = Usuario.new
-    
+    @novo = params[:novo]
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @usuario }
@@ -10,7 +10,7 @@ class UsuariosController < ApplicationController
   
   def create
     valores = params[:usuario]
-    @usuario = Usuario.new(params[:usuario])
+    @usuario = Usuario.new(params[:usuario]) 
     @clinica = Clinica.new
     @clinica.cli_nome = valores[:clinica_id]
     @clinica.save

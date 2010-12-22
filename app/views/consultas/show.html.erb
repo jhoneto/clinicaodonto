@@ -1,0 +1,28 @@
+<p>
+  <b>Dentista:</b>
+  <%=h @consulta.dentista_id %>
+</p>
+
+<p>
+  <b>Paciente:</b>
+  <%=h @consulta.paciente_id %>
+</p>
+
+<p>
+  <b>Con hora:</b>
+  <%=h @consulta.con_hora %>
+</p>
+
+<p>
+  <b>Con data:</b>
+  <%=h @consulta.con_data %>
+</p>
+
+<p>
+  <b>Con status:</b>
+  <%=h @consulta.con_status %>
+</p>
+
+
+<%= link_to 'Edit', edit_consulta_path(@consulta) %> |
+<%= link_to 'Back', consultas_path %>

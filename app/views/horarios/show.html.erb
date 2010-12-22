@@ -1,0 +1,23 @@
+<p>
+  <b>Dentista:</b>
+  <%=h @horario.dentista_id %>
+</p>
+
+<p>
+  <b>Hor dia:</b>
+  <%=h @horario.hor_dia %>
+</p>
+
+<p>
+  <b>Hor horaini:</b>
+  <%=h @horario.hor_horaini %>
+</p>
+
+<p>
+  <b>Hor horafim:</b>
+  <%=h @horario.hor_horafim %>
+</p>
+
+
+<%= link_to 'Edit', edit_horario_path(@horario) %> |
+<%= link_to 'Back', horarios_path %>

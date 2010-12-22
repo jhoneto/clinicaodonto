@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :consultas
+
+  map.resources :horarios
+
   map.resources :fichas
 
   map.resources :pacientes

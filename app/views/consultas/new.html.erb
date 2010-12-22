@@ -1,0 +1,35 @@
+<div id="joinimg" class="joinimg">
+    <%= image_tag(image_path("joinnowpic.gif")) %>
+</div>
+<div id="joinhead" class="joinhead">
+    <h1>Agendar consulta</h1>
+    <div id="login" class="login">
+        <% form_for(@consulta) do |f| %>
+        <%= f.error_messages %>
+        <p>
+            Dentista
+            <br/>
+            <%= f.select :dentista_id, Dentista.all(:all, :conditions => ["clinica_id = ?", session[:clinica_id]]).collect {|p| [ p.den_nome, p.id ] } %>
+        </p>
+        <p>
+            <%= f.label :paciente_id %>
+            <br/>
+            <%= f.text_field :paciente_id %>
+        </p>
+        <p>
+            Data
+            <br/>
+            <%= f.date_select :con_data %>
+        </p>
+        <p>
+            Hora
+            <br/>
+            <%= f.time_select :con_hora %>
+        </p>
+        <p>
+            <%= f.submit 'Create' %>
+        </p>
+        <% end %>
+    </div>
+    <%= link_to 'Back', consultas_path %>
+</div>

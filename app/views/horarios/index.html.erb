@@ -1,0 +1,37 @@
+<div id="joinhead" class="joinhead">
+    <h1>Horários</h1>
+	<h2><%= @dentista.den_nome%></h2>
+    <table>
+        <tr>            
+            <th>
+                Dia da semana
+            </th>
+            <th>
+                Início
+            </th>
+            <th>
+                Fim
+            </th>
+        </tr>
+        <% @horarios.each do |horario| %>
+        <tr>
+            <td>
+                <%=h horario.hor_dia %>
+            </td>
+            <td>
+                <%=h horario.hor_horaini.strftime("%H:%M") %>
+            </td>
+            <td>
+                <%=h horario.hor_horafim.strftime("%H:%M") %>
+            </td>			            
+            <td>
+            	<%= link_to image_tag(image_path("page_delete.png"), :border=>0, :title=>"Excluir"), horario, :confirm => 'Confirma a exclusão?', :method => :delete %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+    <br/>
+	<% link_to new_horario_path do %>
+	  <%= image_tag(image_path("page_add.png")) %> Novo
+	<% end %>
+</div>

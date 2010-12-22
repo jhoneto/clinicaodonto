@@ -155,6 +155,15 @@ body {
     margin: 0px;
 }
 
+.joinhead h2 {
+    padding: 5px;
+    font: Arial, Verdana, Helvetica;
+    line-height: 30px;
+    font-size: 14px;
+    color: #8B9C81;
+    margin: 0px;
+}
+
 #news {
     width: 290px;
     float: left;

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  dentista: 1
+  hor_dia: 1
+  hor_horaini: 2010-12-17 20:38:39
+  hor_horafim: 2010-12-17 20:38:39
+
+two:
+  dentista: 1
+  hor_dia: 1
+  hor_horaini: 2010-12-17 20:38:39
+  hor_horafim: 2010-12-17 20:38:39

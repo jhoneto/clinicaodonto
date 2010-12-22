@@ -1,0 +1,32 @@
+<h1>Editing consulta</h1>
+
+<% form_for(@consulta) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :dentista_id %><br />
+    <%= f.text_field :dentista_id %>
+  </p>
+  <p>
+    <%= f.label :paciente_id %><br />
+    <%= f.text_field :paciente_id %>
+  </p>
+  <p>
+    <%= f.label :con_hora %><br />
+    <%= f.date_select :con_hora %>
+  </p>
+  <p>
+    <%= f.label :con_data %><br />
+    <%= f.date_select :con_data %>
+  </p>
+  <p>
+    <%= f.label :con_status %><br />
+    <%= f.text_field :con_status %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @consulta %> |
+<%= link_to 'Back', consultas_path %>

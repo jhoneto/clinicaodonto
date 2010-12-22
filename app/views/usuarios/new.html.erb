@@ -4,10 +4,10 @@
     </div>
     <div id="joinhead" class="joinhead">
         <h1>Novo usuário</h1>
-		<% form_for(@usuario) do |f| %>
+        <% form_for(@usuario) do |f| %>
         <div id="login" class="login">
             <table>
-            	<tr>
+                <tr>
                     <td>
                         <%= f.label :teste, "Clínica" %>
                     </td>
@@ -15,7 +15,7 @@
                         <%= f.text_field :clinica_id %>
                     </td>
                 </tr>
-            	<tr>
+                <tr>
                     <td>
                         <%= f.label :usu_nome, "Nome" %>
                     </td>
@@ -46,17 +46,18 @@
                     <td>
                         <%= f.password_field :usu_senha %>
                     </td>
-                </tr>				
+                </tr>
                 <tr>
                     <td>
+                        <%= f.hidden_field :usu_admin, :value=> @novo %>
                     </td>
                     <td align="right">
-                    	<%= f.submit 'Salvar', :class=>"button"%>
+                        <%= f.submit 'Salvar', :class=>"button" %>
                     </td>
                 </tr>
             </table>
         </div>
-		<% end %>
+        <% end %>
     </div>
 </div>
 <!--

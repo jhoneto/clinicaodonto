@@ -1,0 +1,44 @@
+<div id="joinimg" class="joinimg">
+    <%= image_tag(image_path("joinnowpic.gif")) %>
+</div>
+<div id="joinhead" class="joinhead">
+    <h1>Novo horário</h1>
+    <div id="login" class="login">
+        <% form_for(@horario) do |f| %>
+        <%= f.error_messages %>
+		
+		<table>
+			<tr>
+				<td> Dia </td>
+				<td> <%= f.select :hor_dia, "<option value=1 >Domingo</option>
+                                             <option value=2 >Segunda-feira</option>
+                                             <option value=3 >Terça-feira</opton>
+                                             <option value=4 >Quarta-feira</option>
+                                             <option value=5 >Quinta-feira</option>
+                                             <option value=6 >Sexta-feira</option>
+                                             <option value=7 >Sábado</option>" %> 
+				</td>
+			</tr>
+			<tr>
+				<td>Início do atendimento</td>
+				<td><%= f.time_select :hor_horaini %></td>
+			</tr>
+			<tr>
+				<td>Fim do atedimento</td>
+				<td><%= f.time_select :hor_horafim %></td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.hidden_field :dentista_id, :value=> session[:dentistaid] %>
+                </td>
+                <td align="right">
+                    <%= f.submit 'Salvar', :class=>"button" %>
+                </td>
+			</tr>
+		</table>
+        <% end %>
+    </div>
+    <% link_to horarios_path do %>
+      <%= image_tag(image_path("page_back.png")) %> Voltar
+	<% end %>
+</div>

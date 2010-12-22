@@ -4,6 +4,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
         <title>ClinicaOdonto</title>
         <%= stylesheet_link_tag 'style', :media => 'all' %>
+		<%= javascript_include_tag :defaults %>
+        <%= javascript_include_inputs %>
     </head>
     <body>
         <div id="hold">
@@ -12,8 +14,10 @@
                 <div id="content" class="conteudo">
                     <div id="left" class="esquerda">
                         <div id="menu_esquerda" class="leftnav">
+                        <!--	<%= link_to "Agenda de consultas", :controller => :consultas, :action=>:index %> -->
 							<%= link_to "Pacientes", :controller => :pacientes, :action=>:index %>
                             <%= link_to "Dentistas", :controller => :dentistas, :action=>:index %>
+							<%= (session[:usuario_admin]) ? (link_to "Usuários", :controller => :usuarios, :action=>:index) : "" %>
                         </div>
                     </div>
                     <div id="right" class="direita">

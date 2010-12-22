@@ -13,7 +13,8 @@
   </p>
   <p>
     <%= f.label :fic_data %><br />
-    <%= f.date_select :fic_data %>
+    <!-- <%= f.date_select :fic_data %> -->
+	<%= f.text_field :exam_date, {:value => full_date(@ficha.fic_data)} %>
   </p>
   <p>
     <%= f.label :fic_desc %><br />
