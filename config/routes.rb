@@ -1,4 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+  map.connect 'adicionar_favoritos', :controller => 'contatos', :action => 'adicionar_favoritos'
+  map.resources :contatos
+
   map.resources :consultas
 
   map.resources :horarios
@@ -14,6 +17,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :odontogramadet
   
   map.connect 'home', :controller => 'home', :action => 'index'
+  
+  map.connect 'admin', :controller => 'admin', :action => 'index'
+  
+  map.connect 'admin/login', :controller => 'admin', :action => 'login'
   
   #map.connect 'paciente', :controller => 'pacientes', :action => 'index'
   # The priority is based upon order of creation: first created -> highest priority.
@@ -48,7 +55,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  # map.root :controller => "welcome"
+   map.root :controller => "admin"
 
   # See how all your routes lay out with "rake routes"
 

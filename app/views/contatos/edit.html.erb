@@ -1,0 +1,56 @@
+<div id="joinimg" class="joinimg">
+    <%= image_tag(image_path("joinnowpic.gif")) %>
+</div>
+<div id="joinhead" class="joinhead">
+    <h1>Dados do contato</h1>
+    <div id="login" class="login">
+        <% form_for(@contato) do |f| %>
+        <%= f.error_messages %>
+        <table width="100%" border="0">
+            <tr>
+                <td>
+                    Nome
+                </td>
+                <td>
+                    <%= f.text_field :ctt_nome %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Fone 1
+                </td>
+                <td>
+                    <%= masked_text_field (:contato, :ctt_fone1, :size => 14, :mask => :phone) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Fone 2
+                </td>
+                <td>
+                    <%= masked_text_field (:contato, :ctt_fone2, :size => 14, :mask => :phone) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Observações
+                </td>
+                <td>
+                    <%= f.text_area :ctt_obs, :rows => 5 %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td align="right">
+                    <%= f.submit 'Salvar', :class=>"button" %>
+                </td>
+            </tr>
+        </table>
+        <% end %>
+    </div>
+    <% link_to contatos_path do %>
+    <%= image_tag(image_path("page_back.png")) %>Voltar<% end %>
+    <% link_to @contato do %>
+    <%= image_tag(image_path("page.png")) %>Visualizar<% end %>
+</div>

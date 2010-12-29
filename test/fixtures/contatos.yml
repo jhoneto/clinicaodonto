@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ctt_nome: MyString
+  ctt_fone1: MyString
+  ctt_fone2: MyString
+  ctt_obs: MyString
+
+two:
+  ctt_nome: MyString
+  ctt_fone1: MyString
+  ctt_fone2: MyString
+  ctt_obs: MyString

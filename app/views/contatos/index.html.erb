@@ -1,0 +1,49 @@
+<div id="joinhead" class="joinhead">
+    <h1>Lista contatos</h1>
+    <table width="400">
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Fone1
+            </th>
+            <th>
+                Fone2
+            </th>
+        </tr>
+        <% @contatos.each do |contato| %>
+        <tr>
+            <td>
+                <%=h contato.ctt_nome %>
+            </td>
+            <td>
+                <%=h contato.ctt_fone1 %>
+            </td>
+            <td>
+                <%=h contato.ctt_fone2 %>
+            </td>
+            <td>
+                <%=h contato.ctt_obs %>
+            </td>
+			
+			<td>
+                <%= link_to image_tag(image_path("page.png"), :border=>0, :title=>"Visualizar"), contato %>
+            </td>
+            <td>
+                <%= link_to image_tag(image_path("page_edit.png"), :border=>0, :title=>"Alterar"), edit_contato_path(contato) %>
+            </td>
+            <td>
+                <%= link_to image_tag(image_path("page_delete.png"), :border=>0, :title=>"Excluir"), contato, :confirm => 'Confirma a exclusão?', :method => :delete %>
+            </td>
+			<td>
+                <%= link_to image_tag(image_path("star_gray.png"), :border=>0, :title=>"Favoritos"), :controller => "contatos", :action => "adicionar_favoritos", :contato_id => contato.id  %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+    <br/>
+    <% link_to new_contato_path do %>
+		<%= image_tag(image_path("page_add.png")) %>Novo
+	<% end %>
+</div>

@@ -1,0 +1,54 @@
+<div id="joinhead" class="joinhead">
+    <h1>Lista de pacientes</h1>
+    <div class="busca">
+        <% form_tag ('/pacientes', :method => 'get') do %>
+        Nome do paciente: <%= text_field_tag :nome, '', :size => 25 %>
+        <%= submit_tag "Buscar" %>
+        <%end %>
+    </div>
+	
+    <table width="600">
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Telefone
+            </th>
+            <th>
+                Celular
+            </th>
+        </tr>
+        <% @pacientes.each do |paciente| %>
+        <tr>
+            <td>
+                <%=h paciente.pac_nome %>
+            </td>
+            <td>
+                <%=h paciente.pac_fone %>
+            </td>
+            <td>
+                <%=h paciente.pac_celular %>
+            </td>
+            <td>
+                <%= link_to image_tag(image_path("page.png"), :border=>0, :title=>"Visualizar"), paciente %>
+            </td>
+            <td>
+                <%= link_to image_tag(image_path("page_edit.png"), :border=>0, :title=>"Alterar"), edit_paciente_path(paciente) %>
+            </td>
+            <td>
+                <%= link_to image_tag(image_path("page_delete.png"), :border=>0, :title=>"Excluir"), paciente, :confirm => 'Confirma a exclusao?', :method => :delete %>
+            </td>
+			<td>
+				<%= link_to image_tag(image_path("table_multiple.png"), :border=>0, :title=>"Ficha"), :controller => "fichas", :action => "index", :pacienteid => paciente.id%>
+			</td>
+			<td>
+				<%= link_to image_tag(image_path("brick.png"), :border=>0, :title=>"Odontograma"), :controller => "odontograma", :action => "index" %>
+			</td>
+        </tr>
+        <% end %>
+    </table>
+    <br/>
+    <% link_to new_paciente_path do %>
+    <%= image_tag(image_path("page_add.png")) %>Novo<% end %>
+</div>

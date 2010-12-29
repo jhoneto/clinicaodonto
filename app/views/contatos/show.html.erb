@@ -1,0 +1,48 @@
+<div id="joinimg" class="joinimg">
+    <%= image_tag(image_path("joinnowpic.gif")) %>
+</div>
+<div id="joinhead" class="joinhead">
+    <h1>Dados do contato</h1>
+    <div id="login" class="login">
+        <table width="400" border="0">
+            <tr>
+                <td>
+                    <b>Nome:</b>
+                </td>
+                <td>
+                    <%=h @contato.ctt_nome %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Fone 1:</b>
+                </td>
+                <td>
+                    <%=h @contato.ctt_fone1 %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Fone 2:</b>
+                </td>
+                <td>
+                    <%=h @contato.ctt_fone2 %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Observação:</b>
+                </td>
+                <td>
+                    <%=h @contato.ctt_obs %>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="acoes">
+        <% link_to contatos_path do %>
+        <%= image_tag(image_path("page_back.png")) %>Voltar<% end %>
+        <% link_to  edit_contato_path(@contato) do %>
+        <%= image_tag(image_path("page_edit.png")) %>Alterar<% end %>
+    </div>
+</div>

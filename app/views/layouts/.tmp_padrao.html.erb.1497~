@@ -18,7 +18,6 @@
                         <!--	<%= link_to "Agenda de consultas", :controller => :consultas, :action=>:index %> -->
 							<%= link_to "Pacientes", :controller => :pacientes, :action=>:index %>
                             <%= link_to "Dentistas", :controller => :dentistas, :action=>:index %>
-							<%= link_to "Contatos", :controller => :contatos, :action=>:index %>
 							<%= (session[:usuario_admin]) ? (link_to "Usuários", :controller => :usuarios, :action=>:index) : "" %>
                         </div>
                     </div>

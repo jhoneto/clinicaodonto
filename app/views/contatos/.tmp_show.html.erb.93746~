@@ -1,0 +1,23 @@
+<p>
+  <b>Ctt nome:</b>
+  <%=h @contato.ctt_nome %>
+</p>
+
+<p>
+  <b>Ctt fone1:</b>
+  <%=h @contato.ctt_fone1 %>
+</p>
+
+<p>
+  <b>Ctt fone2:</b>
+  <%=h @contato.ctt_fone2 %>
+</p>
+
+<p>
+  <b>Ctt obs:</b>
+  <%=h @contato.ctt_obs %>
+</p>
+
+
+<%= link_to 'Edit', edit_contato_path(@contato) %> |
+<%= link_to 'Back', contatos_path %>

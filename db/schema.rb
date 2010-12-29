@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101222011543) do
+ActiveRecord::Schema.define(:version => 20101229021728) do
 
   create_table "clinicas", :force => true do |t|
     t.string   "cli_nome",   :limit => 60, :null => false
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(:version => 20101222011543) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.time     "con_hora"
+  end
+
+  create_table "contatos", :force => true do |t|
+    t.string   "ctt_nome",   :limit => 100, :null => false
+    t.string   "ctt_fone1",  :limit => 14,  :null => false
+    t.string   "ctt_fone2",  :limit => 14
+    t.string   "ctt_obs"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "clinica_id"
   end
 
   create_table "dentistas", :force => true do |t|
@@ -52,13 +62,22 @@ ActiveRecord::Schema.define(:version => 20101222011543) do
     t.datetime "updated_at"
   end
 
-  create_table "odontogramadets", :force => true do |t|
-    t.integer  "odontograma_id", :null => false
-    t.integer  "odd_dente"
-    t.date     "odd_data"
-    t.integer  "odd_acao"
+  create_table "meuscontatos", :force => true do |t|
+    t.integer  "usuario_id", :null => false
+    t.integer  "contato_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  add_index "meuscontatos", ["contato_id", "usuario_id"], :name => "index_meuscontatos_on_contato_id_and_usuario_id", :unique => true
+
+  create_table "odontogramadets", :force => true do |t|
+    t.integer  "odontograma_id",  :null => false
+    t.integer  "odd_dente"
+    t.date     "odd_data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "procedimento_id"
   end
 
   create_table "odontogramas", :force => true do |t|
@@ -80,6 +99,13 @@ ActiveRecord::Schema.define(:version => 20101222011543) do
     t.string   "pac_uf",         :limit => 2
     t.string   "pac_fone",       :limit => 14
     t.string   "pac_celular",    :limit => 14
+  end
+
+  create_table "procedimentos", :force => true do |t|
+    t.string   "pro_nome"
+    t.string   "pro_imagem"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "usuarios", :force => true do |t|

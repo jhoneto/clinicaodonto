@@ -1,0 +1,27 @@
+<h1>New contato</h1>
+
+<% form_for(@contato) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :ctt_nome %><br />
+    <%= f.text_field :ctt_nome %>
+  </p>
+  <p>
+    <%= f.label :ctt_fone1 %><br />
+    <%= f.text_field :ctt_fone1 %>
+  </p>
+  <p>
+    <%= f.label :ctt_fone2 %><br />
+    <%= f.text_field :ctt_fone2 %>
+  </p>
+  <p>
+    <%= f.label :ctt_obs %><br />
+    <%= f.text_field :ctt_obs %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', contatos_path %>

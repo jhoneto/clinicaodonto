@@ -4,7 +4,9 @@ class DentistasController < ApplicationController
   # GET /dentistas
   # GET /dentistas.xml
   def index
-    @dentistas = Dentista.all(:all, :conditions => ["clinica_id = ?", session[:clinica_id]])
+    @dentistas = Dentista.all(:all, 
+                              :conditions => ["clinica_id = ?", session[:clinica_id]],
+                              :order => 'den_nome')
 
     respond_to do |format|
       format.html # index.html.erb

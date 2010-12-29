@@ -1,0 +1,375 @@
+
+
+Processing ApplicationController#index (for 187.18.181.252 at 2010-12-23 08:54:53) [GET]
+
+ActionController::RoutingError (No route matches "/admin" with {:method=>:get}):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 187.18.181.252 at 2010-12-23 08:56:11) [GET]
+
+ActionController::RoutingError (No route matches "//admin" with {:method=>:get}):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 187.18.181.252 at 2010-12-23 08:57:39) [GET]
+
+ActionController::RoutingError (No route matches "//paciente" with {:method=>:get}):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 187.18.181.252 at 2010-12-23 08:58:12) [GET]
+
+ActionController::RoutingError (No route matches "//admin" with {:method=>:get}):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 187.18.181.252 at 2010-12-23 08:58:24) [GET]
+
+ActionController::RoutingError (No route matches "/admin" with {:method=>:get}):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 187.18.181.252 at 2010-12-23 09:02:22) [GET]
+
+ActionController::RoutingError (No route matches "/home" with {:method=>:get}):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 189.36.193.162 at 2010-12-23 11:14:16) [GET]
+
+ActionController::RoutingError (No route matches "/admin" with {:method=>:get}):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 189.36.193.162 at 2010-12-23 11:20:46) [GET]
+
+ActionController::RoutingError (No route matches "/admin/index.html" with {:method=>:get}):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 189.36.193.162 at 2010-12-23 11:24:05) [GET]
+
+ActionController::RoutingError (No route matches "/" with {:method=>:get}):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/404.html (404 Not Found)
+
+
+Processing AdminController#index (for 189.36.193.162 at 2010-12-23 11:24:14) [GET]
+Rendering template within layouts/application
+Rendering admin/index
+Completed in 22ms (View: 21, DB: 0) | 200 OK [http://www.clinicaodontoweb.com.br/admin]
+
+
+Processing UsuariosController#new (for 189.36.193.162 at 2010-12-23 11:24:46) [GET]
+  Parameters: {"novo"=>"1"}
+Rendering template within layouts/application
+Rendering usuarios/new
+Completed in 10ms (View: 6, DB: 1) | 200 OK [http://www.clinicaodontoweb.com.br/usuarios/new?novo=1]
+
+
+Processing UsuariosController#create (for 189.36.193.162 at 2010-12-23 11:25:48) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"3WNj9PhhlkWMTF2qi2w1vZ/pl2Jx4zShoQmL4/eg7mY=", "usuario"=>{"usu_admin"=>"1", "usu_email"=>"jhamilton.oliveira@gmail.com", "usu_nome"=>"José Hamilton de Oliveira Neto", "clinica_id"=>"Clinica Modelo", "usu_login"=>"hamilton", "usu_senha"=>"30neto07"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/422.html (422 Unprocessable Entity)
+
+
+Processing AdminController#login (for 189.36.193.162 at 2010-12-23 11:26:07) [POST]
+  Parameters: {"authenticity_token"=>"qm65Ux6Clwi0wyQWz7qktUMKMwqrhdSwmVF9pTB4KZk=", "usuario"=>{"clinica_id"=>"1", "usu_login"=>"hamilton", "usu_senha"=>"30neto07"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/422.html (422 Unprocessable Entity)
+
+
+Processing UsuariosController#new (for 189.36.193.162 at 2010-12-23 11:27:40) [GET]
+  Parameters: {"novo"=>"1"}
+Rendering template within layouts/application
+Rendering usuarios/new
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://www.clinicaodontoweb.com.br/usuarios/new?novo=1]
+
+
+Processing UsuariosController#create (for 189.36.193.162 at 2010-12-23 11:27:56) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"irbnxhW1kxmR1/3kMPuYWFZQho9UF6Jd4FSFkS04yy4=", "usuario"=>{"usu_admin"=>"1", "usu_email"=>"jhamilton.oliveira@gmail.com", "usu_nome"=>"Hamilton Oliveira", "clinica_id"=>"Modelo", "usu_login"=>"hamilton", "usu_senha"=>"30neto07"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/422.html (422 Unprocessable Entity)
+
+
+Processing UsuariosController#create (for 189.36.193.162 at 2010-12-23 11:31:04) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"irbnxhW1kxmR1/3kMPuYWFZQho9UF6Jd4FSFkS04yy4=", "usuario"=>{"usu_admin"=>"1", "usu_email"=>"jhamilton.oliveira@gmail.com", "usu_nome"=>"Hamilton Oliveira", "clinica_id"=>"Modelo", "usu_login"=>"hamilton", "usu_senha"=>"30neto07"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/422.html (422 Unprocessable Entity)
+
+
+Processing UsuariosController#new (for 189.36.193.162 at 2010-12-23 11:41:07) [GET]
+  Parameters: {"novo"=>"1"}
+Rendering template within layouts/application
+Rendering usuarios/new
+Completed in 4ms (View: 4, DB: 0) | 200 OK [http://www.clinicaodontoweb.com.br/usuarios/new?novo=1]
+
+
+Processing UsuariosController#create (for 189.36.193.162 at 2010-12-23 11:41:22) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"4+VSn7ztHrc4UT+8qR+dBnx1T4RPETQ8pfbt6eYUAnk=", "usuario"=>{"usu_admin"=>"1", "usu_email"=>"jhamilton.oliveira@gmail.com", "usu_nome"=>"Hamilton Oliveira", "clinica_id"=>"Modelo", "usu_login"=>"hamilton", "usu_senha"=>"30neto07"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/422.html (422 Unprocessable Entity)
+
+
+Processing UsuariosController#create (for 189.36.193.162 at 2010-12-23 11:41:42) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"4+VSn7ztHrc4UT+8qR+dBnx1T4RPETQ8pfbt6eYUAnk=", "usuario"=>{"usu_admin"=>"1", "usu_email"=>"jhamilton.oliveira@gmail.com", "usu_nome"=>"Hamilton Oliveira", "clinica_id"=>"Modelo", "usu_login"=>"hamilton", "usu_senha"=>"30neto07"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/422.html (422 Unprocessable Entity)
+
+
+Processing ApplicationController#index (for 189.36.193.162 at 2010-12-23 11:47:40) [GET]
+
+ActionController::RoutingError (No route matches "/" with {:method=>:get}):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/404.html (404 Not Found)
+
+
+Processing AdminController#index (for 189.36.193.162 at 2010-12-23 11:47:45) [GET]
+Rendering template within layouts/application
+Rendering admin/index
+Completed in 2ms (View: 2, DB: 0) | 200 OK [http://www.clinicaodontoweb.com.br/admin]
+
+
+Processing UsuariosController#new (for 189.36.193.162 at 2010-12-23 11:47:49) [GET]
+  Parameters: {"novo"=>"1"}
+Rendering template within layouts/application
+Rendering usuarios/new
+Completed in 4ms (View: 4, DB: 0) | 200 OK [http://www.clinicaodontoweb.com.br/usuarios/new?novo=1]
+
+
+Processing UsuariosController#create (for 189.36.193.162 at 2010-12-23 11:48:08) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"SZPsCrs1DDtyfxeSNZl/JBsDYLk1d0KJJWujIflQjO0=", "usuario"=>{"usu_admin"=>"1", "usu_email"=>"jhamilton.oliveira@gmail.com", "usu_nome"=>"Hamilton Oliveira", "clinica_id"=>"Modelo", "usu_login"=>"hamilton", "usu_senha"=>"30neto07"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/422.html (422 Unprocessable Entity)
+
+
+Processing UsuariosController#create (for 189.36.193.162 at 2010-12-23 11:49:43) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"4+VSn7ztHrc4UT+8qR+dBnx1T4RPETQ8pfbt6eYUAnk=", "usuario"=>{"usu_admin"=>"1", "usu_email"=>"jhamilton.oliveira@gmail.com", "usu_nome"=>"Hamilton Oliveira", "clinica_id"=>"Modelo", "usu_login"=>"hamilton", "usu_senha"=>"30neto07"}}
+Redirected to http://www.clinicaodontoweb.com.br:12001/usuarios/1
+Completed in 79ms (DB: 13) | 302 Found [http://www.clinicaodontoweb.com.br/usuarios]
+
+
+Processing UsuariosController#new (for 189.36.193.162 at 2010-12-23 11:49:46) [GET]
+  Parameters: {"novo"=>"1"}
+Rendering template within layouts/application
+Rendering usuarios/new
+Completed in 8ms (View: 7, DB: 0) | 200 OK [http://www.clinicaodontoweb.com.br/usuarios/new?novo=1]
+
+
+Processing AdminController#index (for 189.36.193.162 at 2010-12-23 11:49:52) [GET]
+Rendering template within layouts/application
+Rendering admin/index
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.clinicaodontoweb.com.br/admin]
+
+
+Processing UsuariosController#new (for 189.36.193.162 at 2010-12-23 11:49:56) [GET]
+  Parameters: {"novo"=>"1"}
+Rendering template within layouts/application
+Rendering usuarios/new
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://www.clinicaodontoweb.com.br/usuarios/new?novo=1]
+
+
+Processing UsuariosController#create (for 189.36.193.162 at 2010-12-23 11:50:22) [POST]
+  Parameters: {"commit"=>"Salvar", "authenticity_token"=>"bRqrfkhqD+tMDMPh4zlDCibAt9oWAJxgtKcS9Hykur4=", "usuario"=>{"usu_admin"=>"1", "usu_email"=>"jhamilton.oliveira@gmail.com", "usu_nome"=>"Hamilton Oliveira", "clinica_id"=>"Modelo", "usu_login"=>"hamilton", "usu_senha"=>"123"}}
+Redirected to http://www.clinicaodontoweb.com.br:12001/usuarios/2
+Completed in 7ms (DB: 3) | 302 Found [http://www.clinicaodontoweb.com.br/usuarios]
+
+
+Processing AdminController#login (for 189.36.193.162 at 2010-12-23 11:51:21) [POST]
+  Parameters: {"authenticity_token"=>"kXaPFqPxWhwDzvXgJq2f3gmaX08CVrxXlbZabnjZAls=", "usuario"=>{"clinica_id"=>"1", "usu_login"=>"hamilton", "usu_senha"=>"30neto07"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/422.html (422 Unprocessable Entity)
+
+
+Processing AdminController#index (for 189.36.193.162 at 2010-12-23 11:52:06) [GET]
+Rendering template within layouts/application
+Rendering admin/index
+Completed in 2ms (View: 2, DB: 0) | 200 OK [http://www.clinicaodontoweb.com.br/admin]
+
+
+Processing AdminController#login (for 189.36.193.162 at 2010-12-23 11:52:13) [POST]
+  Parameters: {"authenticity_token"=>"0/3CKgEWmtuBfZw/iyt1X5MRhHy32mLli7n6exEbYj4=", "usuario"=>{"clinica_id"=>"1", "usu_login"=>"hamilton", "usu_senha"=>"30neto07"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/422.html (422 Unprocessable Entity)
+
+
+Processing AdminController#login (for 189.36.193.162 at 2010-12-23 11:52:20) [POST]
+  Parameters: {"authenticity_token"=>"0/3CKgEWmtuBfZw/iyt1X5MRhHy32mLli7n6exEbYj4=", "usuario"=>{"clinica_id"=>"1", "usu_login"=>"hamilton", "usu_senha"=>"123"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/422.html (422 Unprocessable Entity)
+
+
+Processing AdminController#index (for 189.36.193.162 at 2010-12-23 11:52:48) [GET]
+Rendering template within layouts/application
+Rendering admin/index
+Completed in 51ms (View: 50, DB: 0) | 200 OK [http://www.clinicaodontoweb.com.br/admin]
+
+
+Processing AdminController#login (for 189.36.193.162 at 2010-12-23 11:53:00) [POST]
+  Parameters: {"authenticity_token"=>"wxHFS/gOnA2cLT4+dr2u7fUlngTaddvrYR2JNzwyLKc=", "usuario"=>{"clinica_id"=>"1", "usu_login"=>"hamilton", "usu_senha"=>"30neto07"}}
+Redirected to http://www.clinicaodontoweb.com.br:12001/home
+Completed in 6ms (DB: 1) | 302 Found [http://www.clinicaodontoweb.com.br/admin/login]
+
+
+Processing ApplicationController#index (for 189.36.193.162 at 2010-12-23 11:54:03) [GET]
+
+ActionController::RoutingError (No route matches "/dentista" with {:method=>:get}):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/404.html (404 Not Found)
+
+
+Processing DentistasController#index (for 189.36.193.162 at 2010-12-23 11:54:07) [GET]
+Redirected to http://www.clinicaodontoweb.com.br:12001/admin
+Filter chain halted as [:usuario_autenticado?] rendered_or_redirected.
+Completed in 3ms (DB: 0) | 302 Found [http://www.clinicaodontoweb.com.br/dentistas]
+
+
+Processing AdminController#index (for 189.36.193.162 at 2010-12-23 11:54:14) [GET]
+Rendering template within layouts/application
+Rendering admin/index
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://www.clinicaodontoweb.com.br/admin]
+
+
+Processing AdminController#login (for 189.36.193.162 at 2010-12-23 11:54:25) [POST]
+  Parameters: {"authenticity_token"=>"gjnrIKNt4RbfAfRBwkbiaANv8zMp1oSpcofoJ4urYA4=", "usuario"=>{"clinica_id"=>"1", "usu_login"=>"hamilton", "usu_senha"=>"30neto07"}}
+Redirected to http://www.clinicaodontoweb.com.br:12001/home
+Completed in 5ms (DB: 1) | 302 Found [http://www.clinicaodontoweb.com.br/admin/login]
+
+
+Processing DentistasController#index (for 189.36.193.162 at 2010-12-23 11:54:35) [GET]
+Redirected to http://www.clinicaodontoweb.com.br:12001/admin
+Filter chain halted as [:usuario_autenticado?] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://www.clinicaodontoweb.com.br/dentistas]
+
+
+Processing AdminController#index (for 187.18.181.252 at 2010-12-23 13:33:46) [GET]
+Rendering template within layouts/application
+Rendering admin/index
+Completed in 51ms (View: 50, DB: 0) | 200 OK [http://www.clinicaodontoweb.com.br/admin]
+
+
+Processing AdminController#login (for 187.18.181.252 at 2010-12-23 13:33:57) [POST]
+  Parameters: {"authenticity_token"=>"/TT8o9LQJX/6UNheKZ3l5jarBAr6y5wr19T4q80732U=", "usuario"=>{"clinica_id"=>"1", "usu_login"=>"hamilton", "usu_senha"=>"30neto07"}}
+Redirected to http://www.clinicaodontoweb.com.br:12001/home
+Completed in 5ms (DB: 1) | 302 Found [http://www.clinicaodontoweb.com.br/admin/login]
+
+
+Processing HomeController#index (for 187.18.181.252 at 2010-12-23 13:34:06) [GET]
+Rendering template within layouts/padrao
+Rendering home/index
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://www.clinicaodontoweb.com.br/home]
+
+
+Processing PacientesController#index (for 187.18.181.252 at 2010-12-23 13:34:15) [GET]
+Redirected to http://www.clinicaodontoweb.com.br:12001/admin
+Filter chain halted as [:usuario_autenticado?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://www.clinicaodontoweb.com.br/pacientes]
+
+
+Processing AdminController#index (for 187.18.181.252 at 2010-12-23 13:34:24) [GET]
+Rendering template within layouts/application
+Rendering admin/index
+Completed in 2ms (View: 2, DB: 0) | 200 OK [http://www.clinicaodontoweb.com.br/admin]
+
+
+Processing AdminController#login (for 187.18.181.252 at 2010-12-23 13:34:39) [POST]
+  Parameters: {"authenticity_token"=>"pUpbcB8GBmuNXFfVS/WZN6C4vx+Y4rn/rQLmRDNPidM=", "usuario"=>{"clinica_id"=>"1", "usu_login"=>"hamilton", "usu_senha"=>"30neto07"}}
+Redirected to http://www.clinicaodontoweb.com.br:12001/home
+Completed in 1ms (DB: 0) | 302 Found [http://www.clinicaodontoweb.com.br/admin/login]
+
+
+Processing HomeController#index (for 187.18.181.252 at 2010-12-23 13:34:44) [GET]
+Rendering template within layouts/padrao
+Rendering home/index
+Completed in 2ms (View: 2, DB: 0) | 200 OK [http://www.clinicaodontoweb.com.br/home]
+
+
+Processing PacientesController#index (for 187.18.181.252 at 2010-12-23 13:34:47) [GET]
+Redirected to http://www.clinicaodontoweb.com.br:12001/admin
+Filter chain halted as [:usuario_autenticado?] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://www.clinicaodontoweb.com.br/pacientes]
+
+
+Processing PacientesController#index (for 187.18.181.252 at 2010-12-23 13:34:49) [GET]
+Redirected to http://www.clinicaodontoweb.com.br:12001/admin
+Filter chain halted as [:usuario_autenticado?] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://www.clinicaodontoweb.com.br/pacientes]
+
+
+Processing PacientesController#index (for 187.18.181.252 at 2010-12-23 13:34:54) [GET]
+Redirected to http://www.clinicaodontoweb.com.br:12001/admin
+Filter chain halted as [:usuario_autenticado?] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://www.clinicaodontoweb.com.br/pacientes]
+
+
+Processing ApplicationController#index (for 187.18.181.252 at 2010-12-23 13:39:11) [GET]
+
+ActionController::RoutingError (No route matches "/" with {:method=>:get}):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/404.html (404 Not Found)
+
+
+Processing AdminController#index (for 187.18.181.252 at 2010-12-23 13:39:15) [GET]
+Rendering template within layouts/application
+Rendering admin/index
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://www.clinicaodontoweb.com.br/admin]
+
+
+Processing AdminController#login (for 187.18.181.252 at 2010-12-23 13:39:30) [POST]
+  Parameters: {"authenticity_token"=>"lPvXwx1KBWsLt2YokH9cmIszFS2l79hYpxk7C2rjCAw=", "usuario"=>{"clinica_id"=>"1", "usu_login"=>"hamilton", "usu_senha"=>"30neto07"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendering /home/clinicao/rails_apps/clinicaodonto/public/422.html (422 Unprocessable Entity)
