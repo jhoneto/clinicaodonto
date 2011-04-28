@@ -3,14 +3,26 @@ class ContatosController < ApplicationController
   # GET /contatos
   # GET /contatos.xml
   def index
-    @contatos = Contato.all(:all, 
-                            :conditions => ["clinica_id = ?", session[:clinica_id]],
-                            :order => 'ctt_nome') 
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @contatos }
+    lista = Contato.find(:all,
+                         :conditions =>["clinica_id = ?", session[:clinica_id]],                                
+                         :select => "id, ctt_nome, ctt_fone1, ctt_fone2",
+                         :order => "ctt_nome") do
+      if params[:_search] == "true"
+        ctt_nome  =~ "%#{params[:ctt_nome]}%" if params[:ctt_nome].present?
+        ctt_fone1 =~ "%#{params[:ctt_fone1]}%" if params[:ctt_fone1].present?
+        ctt_fone2 =~ "%#{params[:ctt_fone2]}%" if params[:ctt_fone2].present?     
+      end
+      paginate :page => params[:page], :per_page => params[:rows]      
+      order_by "#{params[:sidx]} #{params[:sord]}"
     end
+    
+    respond_to do |format|
+      format.html
+      format.json { render :json => lista.to_jqgrid_json([:id, :ctt_nome, :ctt_fone1, :ctt_fone2], 
+        params[:page], params[:rows], lista.size) }
+    end
+    
+    
   end
 
   # GET /contatos/1
@@ -91,6 +103,12 @@ class ContatosController < ApplicationController
     @favorito.usuario_id = session[:usuario_id]
     @favorito.save
     
+    redirect_to(:controller => :contatos, :action => :index)
+  end
+  
+  def remover_favoritos
+    @favorito = Meuscontato.first(:conditions => ["contato_id = ? and usuario_id = ?", session[:usuario_id], params[:contato_id]])
+    @favorito.destroy
     redirect_to(:controller => :contatos, :action => :index)
   end
 end
