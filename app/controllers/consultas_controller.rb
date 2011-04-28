@@ -1,86 +1,103 @@
 class ConsultasController < ApplicationController
   layout "padrao"
-  # GET /consultas
-  # GET /consultas.xml
-  def index
-    @consultas = Consulta.all
-    @dentista = Dentista.find(:all, 
-                              :conditions => ["clinica_id = ?", session[:clinica_id]])
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @consultas }
-    end
-  end
-
-  # GET /consultas/1
-  # GET /consultas/1.xml
-  def show
-    @consulta = Consulta.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @consulta }
-    end
-  end
-
-  # GET /consultas/new
-  # GET /consultas/new.xml
+  
   def new
-    @consulta = Consulta.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @consulta }
-    end
+    agora = Time.new
+    agora = agora - 10800
+    @consulta = Consulta.new(:con_datahoraini => agora, :con_datahorafim => (agora + 3600))
   end
-
-  # GET /consultas/1/edit
-  def edit
-    @consulta = Consulta.find(params[:id])
-  end
-
-  # POST /consultas
-  # POST /consultas.xml
+  
   def create
-    @consulta = Consulta.new(params[:consulta])
-
-    respond_to do |format|
-      if @consulta.save
-        format.html { redirect_to(@consulta, :notice => 'Consulta was successfully created.') }
-        format.xml  { render :xml => @consulta, :status => :created, :location => @consulta }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @consulta.errors, :status => :unprocessable_entity }
+    dtinicial = DateTime.civil(params[:consulta][:"con_datahoraini(1i)"].to_i, params[:consulta][:"con_datahoraini(2i)"].to_i, params[:consulta][:"con_datahoraini(3i)"].to_i, params[:consulta][:"con_datahoraini(4i)"].to_i, params[:consulta][:"con_datahoraini(5i)"].to_i)
+    dtfinal = DateTime.civil(params[:consulta][:"con_datahorafim(1i)"].to_i, params[:consulta][:"con_datahorafim(2i)"].to_i, params[:consulta][:"con_datahorafim(3i)"].to_i, params[:consulta][:"con_datahorafim(4i)"].to_i, params[:consulta][:"con_datahorafim(5i)"].to_i)
+    @consulta = Consulta.new()
+    @consulta.con_paciente = params[:consulta][:con_paciente]
+    @consulta.con_desc = params[:consulta][:con_desc]
+    @consulta.con_fone = params[:consulta][:con_fone]
+    @consulta.con_status = 1 #Agendado      
+    @consulta.con_datahoraini = dtinicial
+    @consulta.con_datahorafim = dtfinal
+    @consulta.save
+  end
+  
+  def index
+    
+  end
+  
+  
+  def get_events
+    @consultas = Consulta.find(:all)
+    events = [] 
+    @consultas.each do |consulta|
+      titulo = consulta.con_paciente
+      if consulta.con_fone
+        titulo = titulo + " - " + consulta.con_fone
       end
+      events << {:id => consulta.id, :title => titulo, :description => consulta.con_desc , :start => "#{consulta.con_datahoraini.iso8601}", :end => "#{consulta.con_datahorafim.iso8601}", :allDay =>false}
+    end
+    render :text => events.to_json
+  end
+  
+  
+  
+  def move
+    @consulta = Event.find_by_id params[:id]
+    if @consulta
+      @consulta.starttime = (params[:minute_delta].to_i).minutes.from_now((params[:day_delta].to_i).days.from_now(@consulta.starttime))
+      @consulta.endtime = (params[:minute_delta].to_i).minutes.from_now((params[:day_delta].to_i).days.from_now(@consulta.endtime))
+      @consulta.all_day = params[:all_day]
+      @consulta.save
     end
   end
-
-  # PUT /consultas/1
-  # PUT /consultas/1.xml
-  def update
-    @consulta = Consulta.find(params[:id])
-
-    respond_to do |format|
-      if @consulta.update_attributes(params[:consulta])
-        format.html { redirect_to(@consulta, :notice => 'Consulta was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @consulta.errors, :status => :unprocessable_entity }
-      end
-    end
+  
+  
+  def resize
+    @consulta = Event.find_by_id params[:id]
+    if @consulta
+      @consulta.endtime = (params[:minute_delta].to_i).minutes.from_now((params[:day_delta].to_i).days.from_now(@consulta.endtime))
+      @consulta.save
+    end    
   end
-
-  # DELETE /consultas/1
-  # DELETE /consultas/1.xml
+  
+  def edit
+    @consulta = Consulta.find_by_id(params[:id])
+  end
+  
+  def update    
+    @consulta = Consulta.find_by_id(params[:consulta][:id])
+    #@event = params[:consulta][]
+    #@consulta.attributes = @event
+    dtinicial = DateTime.civil(params[:consulta][:"con_datahoraini(1i)"].to_i, params[:consulta][:"con_datahoraini(2i)"].to_i, params[:consulta][:"con_datahoraini(3i)"].to_i, params[:consulta][:"con_datahoraini(4i)"].to_i, params[:consulta][:"con_datahoraini(5i)"].to_i)
+    dtfinal = DateTime.civil(params[:consulta][:"con_datahorafim(1i)"].to_i, params[:consulta][:"con_datahorafim(2i)"].to_i, params[:consulta][:"con_datahorafim(3i)"].to_i, params[:consulta][:"con_datahorafim(4i)"].to_i, params[:consulta][:"con_datahorafim(5i)"].to_i)
+    @consulta.con_desc = params[:consulta][:con_desc] 
+    @consulta.con_paciente = params[:consulta][:con_paciente]
+    @consulta.con_fone = params[:consulta][:con_fone]
+    @consulta.con_datahorafim = dtfinal
+    @consulta.con_datahoraini = dtinicial
+    @consulta.save
+    render :update do |page|
+      page<<"$('#calendar').fullCalendar( 'refetchEvents' )"
+      page<<"$('#desc_dialog').dialog('destroy')" 
+    end
+    
+  end  
+  
   def destroy
-    @consulta = Consulta.find(params[:id])
-    @consulta.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(consultas_url) }
-      format.xml  { head :ok }
+    @consulta = Event.find_by_id(params[:id])
+    if params[:delete_all] == 'true'
+      @consulta.event_series.destroy
+    elsif params[:delete_all] == 'future'
+      @consultas = @consulta.event_series.events.find(:all, :conditions => ["starttime > '#{@consulta.starttime.to_formatted_s(:db)}' "])
+      @consulta.event_series.events.delete(@consultas)
+    else
+      @consulta.destroy
     end
+    
+    render :update do |page|
+      page<<"$('#calendar').fullCalendar( 'refetchEvents' )"
+      page<<"$('#desc_dialog').dialog('destroy')" 
+    end
+    
   end
+  
 end
