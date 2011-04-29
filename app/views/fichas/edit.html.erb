@@ -1,28 +1,48 @@
-<h1>Editing ficha</h1>
-
-<% form_for(@ficha) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :dentista_id %><br />
-    <%= f.text_field :dentista_id %>
-  </p>
-  <p>
-    <%= f.label :paciente_id %><br />
-    <%= f.text_field :paciente_id %>
-  </p>
-  <p>
-    <%= f.label :fic_data %><br />
-    <%= f.date_select :fic_data %>
-  </p>
-  <p>
-    <%= f.label :fic_desc %><br />
-    <%= f.text_area :fic_desc %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @ficha %> |
-<%= link_to 'Back', fichas_path %>
+<div id="joinimg" class="joinimg">
+    <%= image_tag(image_path("joinnowpic.gif")) %>
+</div>
+<div id="joinhead" class="joinhead">
+    <h1>Alterar ficha</h1>
+    <div id="login" class="login">
+        <% form_for(@ficha) do |f| %>
+        <%= f.error_messages %>
+        <table width="200" border="0">
+            <tr>
+                <td>
+                    Dentista
+                </td>
+                <td>
+                    <%= f.select :dentista_id, Dentista.find(:all, :conditions => ["clinica_id = ?", session[:clinica_id]]).collect {|pro| [pro.den_nome, pro.id]} %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Data
+                </td>
+                <td>
+                    <%= datepicker_tag (:ficha, :fic_data, :size => 30) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Descrição
+                </td>
+                <td>
+                    <%= f.text_area :fic_desc, :rows => 5 %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td align="right">
+                    <%= f.submit 'Salvar', :class=>"button" %>
+                </td>
+            </tr>
+        </table>
+        <% end %>
+    </div>
+    <% link_to fichas_path do %>
+    <%= image_tag(image_path("page_back.png")) %>Voltar<% end %>
+    <% link_to @ficha do %>
+    <%= image_tag(image_path("page.png")) %>Visualizar<% end %>
+</div>

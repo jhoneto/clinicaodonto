@@ -1,0 +1,210 @@
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:38:45) [GET]
+
+NameError (uninitialized constant AdminController):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:38:45) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:38:56) [GET]
+
+NameError (uninitialized constant AdminController):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:38:57) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:38:58) [GET]
+
+NameError (uninitialized constant AdminController):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:38:58) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:38:59) [GET]
+
+NameError (uninitialized constant AdminController):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:39:00) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:39:01) [GET]
+
+NameError (uninitialized constant AdminController):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:39:01) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:39:02) [GET]
+
+NameError (uninitialized constant AdminController):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:39:02) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:39:03) [GET]
+
+NameError (uninitialized constant AdminController):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:39:04) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:39:04) [GET]
+
+NameError (uninitialized constant AdminController):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:39:05) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:40:59) [GET]
+
+NameError (uninitialized constant AdminController):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:40:59) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:41:05) [GET]
+
+NameError (uninitialized constant PacientesController):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:41:05) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:41:53) [GET]
+
+NameError (uninitialized constant AdminController):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:41:54) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:42:23) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:42:26) [GET]
+
+NameError (uninitialized constant AdminController):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:42:26) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:42:29) [GET]
+
+NameError (uninitialized constant AdminController):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:42:29) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:42:36) [GET]
+
+NameError (uninitialized constant AdminController):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:42:37) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+
+
+
+Processing ActionController::Base#index (for 189.36.193.190 at 2011-03-11 11:43:00) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  config/initializers/mongrel.rb:63:in `dispatch_cgi'
+

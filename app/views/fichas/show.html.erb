@@ -1,23 +1,27 @@
-<p>
-  <b>Dentista:</b>
-  <%=h @ficha.dentista_id %>
-</p>
-
-<p>
-  <b>Paciente:</b>
-  <%=h @ficha.paciente_id %>
-</p>
-
-<p>
-  <b>Fic data:</b>
-  <%=h @ficha.fic_data %>
-</p>
-
-<p>
-  <b>Fic desc:</b>
-  <%=h @ficha.fic_desc %>
-</p>
-
-
-<%= link_to 'Edit', edit_ficha_path(@ficha) %> |
-<%= link_to 'Back', fichas_path %>
+<div id="joinimg" class="joinimg">
+    <%= image_tag(image_path("joinnowpic.gif")) %>
+</div>
+<div id="joinhead" class="joinhead">
+    <h1>Visualisar ficha</h1>
+    <div id="login" class="login">
+        <% form_for(@ficha) do |f| %>
+        <%= f.error_messages %>
+        <p>
+            <b>Dentista:</b>
+            <%=h @ficha.dentista.den_nome %>
+        </p>
+        <p>
+            <b>Data:</b>
+            <%=h @ficha.fic_data %>
+        </p>
+        <p>
+            <b>Descrição:</b>
+            <%=h @ficha.fic_desc %>
+        </p>
+        <% end %>
+    </div>
+	<% link_to fichas_path do %>
+    <%= image_tag(image_path("page_back.png")) %>Voltar<% end %>
+    <% link_to edit_ficha_path(@ficha)	 do %>
+    <%= image_tag(image_path("page_edit.png")) %>Alterar<% end %>
+</div>

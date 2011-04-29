@@ -1,32 +1,47 @@
-<div id="joinimg" class="joinimg">
-    <%= image_tag(image_path("joinnowpic.gif")) %>
-</div>
-<div id="joinhead" class="joinhead">
-    <h1>Novo dentista</h1>
-    <div id="login" class="login">
+<script>
+    $(function(){
+        $("#btnback").button({
+            label: "Voltar",
+            icons: {
+                primary: "backIcon"
+            }
+        
+        }).click(function(){
+            location.href = '/dentistas';
+        });
+        
+        $("#btnsave").button({
+            label: "Salvar",
+            icons: {
+                primary: "saveIcon"
+            }
+        
+        }).click(function(){
+            $("form#new_dentista").submit();
+        });
+    })
+</script>
+<h1>Novo dentista</h1>
+<div id="dentistas">
+    <p>
+        <div class="fg-toolbar ui-widget-header ui-corner-all ui-helper-clearfix">
+            <button id="btnsave" hint="Salvar" title="Salvar" class="fg-button ui-state-default ui-corner-left">
+            </button>
+            <button id="btnback" hint="Voltar" title="Voltar" class="fg-button ui-state-default ui-corner-left">
+            </button>
+        </div>
         <% form_for(@dentista) do |f| %>
         <%= f.error_messages %>
-        <table width="100%" border="0">
-            <tr>
-                <td>
-                    Nome
-                </td>
-                <td>
-                    <%= f.text_field :den_nome %>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                </td>
-                <td align="right">
-                    <%= f.submit 'Salvar', :class=>"button" %>
-                </td>
-            </tr>
-        </table>
-		
+        <!-- %= f.submit 'Salvar', :class=>"button"  , :live_validations => true%-->
+        <br>
+        <div class="dadosdentista">
+            <p>
+                <label>
+                    Nome 
+                </label>
+                <%= f.text_field :den_nome, :style => "width: 425px" %>
+            </p>
+        </div>
         <% end %>
-    </div>
-    <% link_to dentistas_path do %>
-	  <%= image_tag(image_path("page_back.png")) %> Voltar
-	<% end %>
+    </p>
 </div>

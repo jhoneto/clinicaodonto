@@ -1,48 +1,64 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
         <title>ClinicaOdonto</title>
         <%= stylesheet_link_tag 'style', :media => 'all' %>
-		<%= stylesheet_link_tag 'jquery-ui-1.8.7.custom' %>
-		<%= javascript_include_tag :defaults %>
+        <%= jqgrid_stylesheets %>
+        <%= stylesheet_link_tag 'jquery-ui-1.8.9.custom' %>
+        <%= javascript_include_tag :defaults %>
         <%= javascript_include_inputs %>
+		<%= javascript_include_tag 'jqgrid/i18n/grid.locale-pt-br' %>
+        <%= jqgrid_javascripts %>
+        <%= javascript_include_tag 'jquery.rest' %>
+        <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
+		<%= javascript_include_tag "jquery.validate.min" %>
+		<%= javascript_include_tag 'fullcalendar', 'gcal', 'application' %>
+		<%=stylesheet_link_tag 'fullcalendar' %>
+        <script>
+            $(function(){
+                $("#accordion").accordion();
+            });
+        </script>
     </head>
     <body>
-        <div id="hold">
-            <div id="container" class="container">
-                <%= image_tag(image_path("header.gif"))%>
-                <div id="content" class="conteudo">
-                    <div id="left" class="esquerda">
-                        <div id="menu_esquerda" class="leftnav">
-                        <!--	<%= link_to "Agenda de consultas", :controller => :consultas, :action=>:index %> -->
-							<%= link_to "Pacientes", :controller => :pacientes, :action=>:index %>
-                            <%= link_to "Dentistas", :controller => :dentistas, :action=>:index %>
-							<%= link_to "Contatos", :controller => :contatos, :action=>:index %>
-							<%= (session[:usuario_admin]) ? (link_to "Usuários", :controller => :usuarios, :action=>:index) : "" %>
+        <!-- Begin Wrapper -->
+        <div id="wrapper">
+            <!-- Begin Header -->
+            <div id="header">
+                 
+            </div>
+            <!-- End Header --><!-- Begin Faux Columns -->
+            <div id="faux">
+                <!-- Begin Left Column -->
+                <div id="leftcolumn">
+                	<div id="accordion">
+                            <h3><a href="#">Agenda</a></h3>
+                            <div>
+                            	<!-- <%= link_to "Home", :controller => :home, :action=>:index %> -->
+                                <%= link_to "Agenda", :controller => :consultas, :action=>:index %>
+                                <%= link_to "Pacientes", :controller => :pacientes, :action=>:index %>                                
+                                <!-- <%= (session[:usuario_admin]) ? (link_to "Usuários", :controller => :usuarios, :action=>:index) : "" %> -->
+                            </div>
+							<h3><a href="#">Financeiro</a></h3>
+                            <div>
+                            </div>
+							<h3><a href="#">Cadastros gerais</a></h3>
+                            <div>
+                            	<%= link_to "Dentistas", :controller => :dentistas, :action=>:index %>
+                                <%= link_to "Contatos", :controller => :contatos, :action=>:index %>
+                            </div>	
                         </div>
-                    </div>
-                    <div id="right" class="direita">
-                        <div id="join" class="join">                            
-							<%= yield %>
-                        </div>
+                </div>
+                <!-- End Left Column --><!-- Begin Right Column -->
+                <div id="rightcolumn">
+                    <%= yield %>
+                    <div class="clear">
                     </div>
                 </div>
+                <!-- End Right Column -->
             </div>
-            <div id="footer1" class="footer">
-                <a href="http://www.free-css.com/">Home</a>
-                <a href="http://www.free-css.com/">|</a>
-                <a href="http://www.free-css.com/">Sign Up</a>
-                <a href="http://www.free-css.com/">|</a>
-                <a href="http://www.free-css.com/">Tools</a>
-                <a href="http://www.free-css.com/">|</a>
-                <a href="http://www.free-css.com/">FAQ</a>
-                <a href="http://www.free-css.com/">|</a>
-                <a href="http://www.free-css.com/">Contact Us</a>
-            </div>
-            <div id="footer2" class="footer">
-                <p>
-                    All Content Copyright © 2006 <strong>Hitsnapper.com</strong>. All rights reserved.
-                </p>
-            </div>
-            </body>
+            <!-- End Faux Columns -->
+        </div>
+        <!-- End Wrapper -->
+    </body>

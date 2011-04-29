@@ -4,6 +4,12 @@ class FichasController < ApplicationController
   # GET /fichas
   # GET /fichas.xml
   def index
+    
+    if params[:pacienteid] == nil
+      params[:pacienteid] = session[:paciente_id] 
+    else
+      session[:paciente_id] = params[:pacienteid]
+    end
     @pacienteId = params[:pacienteid]
     @paciente = Paciente.find(@pacienteId)
     @fichas = Ficha.find(:all,
@@ -46,7 +52,7 @@ class FichasController < ApplicationController
   # POST /fichas.xml
   def create
     @ficha = Ficha.new(params[:ficha])
-
+    @ficha.paciente_id = session[:paciente_id]
     respond_to do |format|
       if @ficha.save
         format.html { redirect_to(@ficha, :notice => 'Ficha was successfully created.') }

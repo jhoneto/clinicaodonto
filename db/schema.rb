@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101229021728) do
+ActiveRecord::Schema.define(:version => 20110427212842) do
 
   create_table "clinicas", :force => true do |t|
     t.string   "cli_nome",   :limit => 60, :null => false
@@ -18,13 +18,14 @@ ActiveRecord::Schema.define(:version => 20101229021728) do
   end
 
   create_table "consultas", :force => true do |t|
-    t.integer  "dentista_id"
-    t.integer  "paciente_id"
-    t.date     "con_data"
     t.integer  "con_status"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.time     "con_hora"
+    t.string   "con_paciente",    :limit => 50
+    t.string   "con_desc"
+    t.datetime "con_datahoraini"
+    t.datetime "con_datahorafim"
+    t.string   "con_fone",        :limit => 13
   end
 
   create_table "contatos", :force => true do |t|
@@ -99,6 +100,7 @@ ActiveRecord::Schema.define(:version => 20101229021728) do
     t.string   "pac_uf",         :limit => 2
     t.string   "pac_fone",       :limit => 14
     t.string   "pac_celular",    :limit => 14
+    t.string   "pac_cep",        :limit => 10
   end
 
   create_table "procedimentos", :force => true do |t|

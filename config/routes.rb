@@ -1,8 +1,15 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :adcionar_telefone_consultas
+
+  map.resources :pacientes
+
   map.connect 'adicionar_favoritos', :controller => 'contatos', :action => 'adicionar_favoritos'
+  map.connect 'remover_favoritos', :controller => 'contatos', :action => 'remover_favoritos'
+
+  
   map.resources :contatos
 
-  map.resources :consultas
+  #map.resources :consultas
 
   map.resources :horarios
 
@@ -21,6 +28,9 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'admin', :controller => 'admin', :action => 'index'
   
   map.connect 'admin/login', :controller => 'admin', :action => 'login'
+  
+  map.connect 'consultas/events',  :controller => :consultas, :action => 'get_events'
+  
   
   #map.connect 'paciente', :controller => 'pacientes', :action => 'index'
   # The priority is based upon order of creation: first created -> highest priority.

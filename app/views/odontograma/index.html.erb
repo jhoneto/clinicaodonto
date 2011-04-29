@@ -7,6 +7,7 @@
     <body>
         <%= @odontograma_view %>
         <% form_tag ('/odontogramadet', :method => 'post') do %>
+		
         <div style='position:absolute; width:25px; height:70px; top: 360px; overflow: visible';>
             <table width="200" border="0">
                 <tr>
@@ -21,8 +22,7 @@
                         <option>45</option><option>46</option><option>47</option><option>48</option>" %>
                     </td>
                     <td>
-                        Ação: <%= select_tag :acao, "<option value=1 >Restauração 1</option>
-                        <option value=2 >Restauração 2</option>" %>
+                        Ação: <%= select_tag(:acao, options_from_collection_for_select(Procedimento.all, 'id', 'pro_nome'))%>
                     </td>
                     <td>
                       
@@ -33,5 +33,6 @@
         </div>
         
         <% end %>
+		
     </body>
 </html>

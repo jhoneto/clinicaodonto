@@ -1,54 +1,74 @@
-<div id="joinhead" class="joinhead">
-    <h1>Lista de pacientes</h1>
-    <div class="busca">
-        <% form_tag ('/pacientes', :method => 'get') do %>
-        Nome do paciente: <%= text_field_tag :nome, '', :size => 25 %>
-        <%= submit_tag "Buscar" %>
-        <%end %>
-    </div>
-	
-    <table width="600">
-        <tr>
-            <th>
-                Nome
-            </th>
-            <th>
-                Telefone
-            </th>
-            <th>
-                Celular
-            </th>
-        </tr>
-        <% @pacientes.each do |paciente| %>
-        <tr>
-            <td>
-                <%=h paciente.pac_nome %>
-            </td>
-            <td>
-                <%=h paciente.pac_fone %>
-            </td>
-            <td>
-                <%=h paciente.pac_celular %>
-            </td>
-            <td>
-                <%= link_to image_tag(image_path("page.png"), :border=>0, :title=>"Visualizar"), paciente %>
-            </td>
-            <td>
-                <%= link_to image_tag(image_path("page_edit.png"), :border=>0, :title=>"Alterar"), edit_paciente_path(paciente) %>
-            </td>
-            <td>
-                <%= link_to image_tag(image_path("page_delete.png"), :border=>0, :title=>"Excluir"), paciente, :confirm => 'Confirma a exclusao?', :method => :delete %>
-            </td>
-			<td>
-				<%= link_to image_tag(image_path("table_multiple.png"), :border=>0, :title=>"Ficha"), :controller => "fichas", :action => "index", :pacienteid => paciente.id%>
-			</td>
-			<td>
-				<%= link_to image_tag(image_path("brick.png"), :border=>0, :title=>"Odontograma"), :controller => "odontograma", :action => "index" %>
-			</td>
-        </tr>
-        <% end %>
-    </table>
-    <br/>
-    <% link_to new_paciente_path do %>
-    <%= image_tag(image_path("page_add.png")) %>Novo<% end %>
+<script>
+    
+    $(function(){
+        $("#btnNew").button({
+            label: "Novo",
+            icons: {
+                primary: "newIcon"
+            }
+        
+        }).click(function(){
+            location.href = '/pacientes/new';
+        });
+        
+        $("#btnEdit").button({
+            label: "Editar",
+            icons: {
+                primary: "editIcon"
+            }
+        
+        }).click(function(){
+            var id = jQuery("#lstpacientes").getGridParam('selrow');
+            if (id != null) {
+                location.href = '/pacientes/' + id + '/edit';
+            }
+            else {
+                alert("Selecione um registro");
+            }
+        });
+        
+        $("#btnDel").button({
+            label: "Remover",
+            icons: {
+                primary: "deleteIcon"
+            }
+        
+        }).click(function(){
+			var id = jQuery("#lstpacientes").getGridParam('selrow');
+            if (id != null) {
+                if (confirm('Confirma a exclusão?')) {                    
+                    $.destroy({
+                        url: '/pacientes/' + id,
+                        beforeSend: function(xhr){
+                            // do something unusual
+                        }
+                        
+                    });
+                    location.href = '/pacientes';
+                }
+            } else {
+				alert("Selecione um registro");
+			}
+        });
+        
+    })
+</script>
+<h1>Lista de pacientes</h1>
+<div class="fg-toolbar ui-widget-header ui-corner-all ui-helper-clearfix">
+    <button id="btnNew" hint="Novo" title="Novo" class="fg-button ui-state-default ui-corner-left">
+    </button>
+    <button id="btnEdit" hint="Editar" class="btnToolBar" title="Editar" class="fg-button ui-state-default ui-corner-left">
+    </button>
+    <button id="btnDel" hint="Remover" class="btnToolBar" title="Excluir" class="fg-button ui-state-default ui-corner-left">
+    </button>
 </div>
+
+<%= jqgrid("", "lstpacientes", "/pacientes",
+[
+{ :field => "id", :label => "ID", :width => 35, :resizable => false },
+{ :field => "pac_nome", :label => "Paciente", :width => 350 },
+{ :field => "pac_fone", :label => "Fone" },
+{ :field => "pac_celular", :label => "Celular" }
+],
+{:height => 300}
+) %>

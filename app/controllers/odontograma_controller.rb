@@ -2,10 +2,14 @@ class OdontogramaController < ApplicationController
   layout "padrao" 
   def index
     #dentes
+    if params[:pacienteid] != nil
+      @pacienteId = params[:pacienteid]
+    else
+      @pacienteId = session[:odontogramaid]
+    end
     
-    @pacienteId = 1#params[:pacienteid]
     @odontograma = Odontograma.first(:conditions => ["paciente_id = ?", @pacienteId])
-    
+    session[:odontogramaid] = @odontograma.id
     div_dente_cima = "<div id='dente' style='position:absolute; width:25px; height:25px; z-index:7; top: 222px; overflow: visible;' >"
     div_dente_baixo = "<div id='dente' style='position:absolute; width:25px; height:25px; z-index:7; top: 248px; overflow: visible;' >"
     div_dente_baixo2 = "<div id='dente' style='position:absolute; width:25px; height:25px; z-index:7; top: 248px; overflow: visible;' >"
@@ -23,7 +27,8 @@ class OdontogramaController < ApplicationController
       @odontograma_view = @odontograma_view + "<td><img src='../images/dentes/" + n.to_s(10) +".png' width='25' height='70' style='filter: Alpha(Opacity=60);'></td>"
     }
     
-    @odontograma_view = @odontograma_view + "</tr><tr>"
+
+   @odontograma_view = @odontograma_view + "</tr><tr>"
     18.downto(11) { 
       |n|
       
@@ -36,7 +41,7 @@ class OdontogramaController < ApplicationController
       # Verifica as ações sobre o dente
       for acao in acoes
         dente_map = dente_map + div_dente_cima
-        dente_map =  dente_map + "<img src='../images/dentes/dente-action-" + acao.odd_acao.to_s(10) + ".png' width='25' height='25' style='filter: Alpha(Opacity=60); border: 1px dotted #FF6699;'>"
+        dente_map =  dente_map + "<img src='../images/dentes/" + acao.procedimento.pro_imagem + "' width='25' height='25' style='filter: Alpha(Opacity=60); border: 1px dotted #FF6699;'>"
         dente_map = dente_map + "</div>"
       end
       
@@ -57,7 +62,7 @@ class OdontogramaController < ApplicationController
       # Verifica as ações sobre o dente
       for acao in acoes
         dente_map = dente_map + div_dente_cima
-        dente_map =  dente_map + "<img src='../images/dentes/dente-action-" + acao.odd_acao.to_s(10) + ".png' width='25' height='25' style='filter: Alpha(Opacity=60); border: 1px dotted #FF6699;'>"
+        dente_map =  dente_map + "<img src='../images/dentes/"+ acao.procedimento.pro_imagem + "' width='25' height='25' style='filter: Alpha(Opacity=60); border: 1px dotted #FF6699;'>"
         dente_map = dente_map + "</div>"
       end
       
@@ -81,7 +86,7 @@ class OdontogramaController < ApplicationController
       # Verifica as ações sobre o dente
       for acao in acoes
         dente_map = dente_map + div_dente_baixo2
-        dente_map =  dente_map + "<img src='../images/dentes/dente-action-" + acao.odd_acao.to_s(10) + ".png' width='25' height='25' style='filter: Alpha(Opacity=60); border: 1px dotted #FF6699;'>"
+        dente_map =  dente_map + "<img src='../images/dentes/" + acao.procedimento.pro_imagem + "' width='25' height='25' style='filter: Alpha(Opacity=60); border: 1px dotted #FF6699;'>"
         dente_map = dente_map + "</div>"
       end
       
@@ -103,7 +108,7 @@ class OdontogramaController < ApplicationController
       # Verifica as ações sobre o dente
       for acao in acoes
         dente_map = dente_map + div_dente_baixo2
-        dente_map =  dente_map + "<img src='../images/dentes/dente-action-" + acao.odd_acao.to_s(10) + ".png' width='25' height='25' style='filter: Alpha(Opacity=60); border: 1px dotted #FF6699;'>"
+        dente_map =  dente_map + "<img src='../images/dentes/" +   acao.procedimento.pro_imagem + "' width='25' height='25' style='filter: Alpha(Opacity=60); border: 1px dotted #FF6699;'>"
         dente_map = dente_map + "</div>"
       end
       
@@ -135,8 +140,8 @@ class OdontogramaController < ApplicationController
     
     @detalhe = Odontogramadet.new
     @detalhe.odd_dente = params[:dente]
-    @detalhe.odd_acao  = params[:acao]
-    @detalhe.odontograma_id = 1 #params[:idodonto]
+    @detalhe.procedimento_id  = params[:acao]
+    @detalhe.odontograma_id = session[:odontogramaid]
     
     @detalhe.save
     

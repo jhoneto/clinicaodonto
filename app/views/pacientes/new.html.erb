@@ -1,89 +1,89 @@
-<div id="joinimg" class="joinimg">
-    <%= image_tag(image_path("joinnowpic.gif")) %>
-</div>
-<div id="joinhead" class="joinhead">
-    <h1>Novo paciente</h1>
-
-    <div id="login" class="login">
+<script>
+    $(function(){
+        $("#btnback").button({
+            label: "Voltar",
+            icons: {
+                primary: "backIcon"
+            }
+        
+        }).click(function(){
+            location.href = '/pacientes';
+        });
+        
+        $("#btnsave").button({
+            label: "Salvar",
+            icons: {
+                primary: "saveIcon"
+            }
+        
+        }).click(function(){
+            $("form#new_paciente").submit();
+        });
+    })
+</script>
+<h1>Novo paciente</h1>
+<div id="pacientes">
+    <p>
+        <div class="fg-toolbar ui-widget-header ui-corner-all ui-helper-clearfix">
+            <button id="btnsave" hint="Salvar" title="Salvar" class="fg-button ui-state-default ui-corner-left">
+            </button>
+            <button id="btnback" hint="Voltar" title="Voltar" class="fg-button ui-state-default ui-corner-left">
+            </button>
+        </div>
         <% form_for(@paciente) do |f| %>
         <%= f.error_messages %>
-        <table width="350" border="0">
-            <tr>
-                <td>
-                    Nome
-                </td>
-                <td>
-                    <%= f.text_field :pac_nome %>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Fone
-                </td>
-                <td>
-                   <!-- <%= f.text_field :pac_fone, :mask => :phone %> -->
-				   <%= masked_text_field(:paciente, :pac_fone, :size => 14, :mask => :phone) %>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Celular
-                </td>
-                <td>
-                    <!-- <%= f.text_field :pac_celular %> -->
-					<%= masked_text_field(:paciente, :pac_celular, :size => 14, :mask => :phone) %>
-                </td>
-            </tr>
-            <tr>
-                <td>
+        <!-- %= f.submit 'Salvar', :class=>"button"  , :live_validations => true%-->
+        <br>
+        <div class="dadospaciente">
+            <p>
+                <label>
+                    Nome 
+                </label>
+                <%= f.text_field :pac_nome, :style => "width: 425px" %>
+            </p>
+            <p>
+                <label>
+                    Fone 
+                </label>
+                <%= masked_text_field(:paciente, :pac_fone, :style => "width: 130px", :mask => :phone) %>
+                <label style= "margin-left: 105px; width: 50px;">
+                    Celular 
+                </label>
+                <%= masked_text_field(:paciente, :pac_celular, :style => "width: 130px", :mask => :phone) %>
+            </p>
+            <p>
+                <label>
                     Endereço
-                </td>
-                <td>
-                    <%= f.text_field :pac_endereco %>
-                </td>
-            </tr>
-            <tr>
-                <td>
+                </label>
+                <%= f.text_field :pac_endereco, :style => "width: 425px" %>
+            </p>
+            <p>
+                <label>
                     Bairro
-                </td>
-                <td>
-                    <%= f.text_field :pac_bairro %>
-                </td>
-            </tr>
-            <tr>
-                <td>
+                </label>
+                <%= f.text_field :pac_bairro, :style => "width: 225px" %>
+                <label style= "margin-left: 60px; width: 30px;">
+                    CEP
+                </label>
+                <%= masked_text_field(:paciente, :pac_cep, :style => "width: 100px", :mask => '99.999-999') %>
+            </p>
+            <p>
+                <label>
                     Cidade
-                </td>
-                <td>
-                    <%= f.text_field :pac_cidade %>
-                </td>
-            </tr>
-            <tr>
-                <td>
+                </label>
+                <%= f.text_field :pac_cidade, :style => "width: 285px"%>
+                <label style= "margin-left: 50px; width: 50px;">
                     Estado
-                </td>
-                <td>
-                    <%= f.text_field :pac_uf %>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Observações
-                </td>
-                <td>
-                    <%= f.text_area :pac_observacao, :rows => 5 %>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                </td>
-                <td align="right">
-                    <%= f.submit 'Salvar', :class=>"button" %>
-                </td>
-            </tr>
-        </table>
+                </label>
+                <%= f.text_field :pac_uf, :style => "width: 30px" %>
+            </p>
+            <p>
+                <label>
+                    Observação
+                </label>
+                <%= f.text_area :pac_observacao, :rows => 5, :style => "width: 425px; border: 1px solid;" %>
+            </p>
+        </div>
         <% end %>
-    </div>
-    <% link_to pacientes_path do %>
-    <%= image_tag(image_path("page_back.png")) %>Voltar<% end %>
+    </p>
 </div>

@@ -1,0 +1,60 @@
+From 52c3efb700808c1ad716fff3dd8a2057d18b3a61 Mon Sep 17 00:00:00 2001
+From: jhoneto <jhamilton.oliveira@gmail.com>
+Date: Wed, 27 Apr 2011 22:37:31 -0300
+Subject: [PATCH] Testeando ferramenta nova
+
+---
+ app/controllers/contatos_controller.rb |   30 ++++++++++++++++++++++++------
+ 1 files changed, 24 insertions(+), 6 deletions(-)
+
+diff --git a/app/controllers/contatos_controller.rb b/app/controllers/contatos_controller.rb
+index 1e3f070..1144189 100644
+--- a/app/controllers/contatos_controller.rb
++++ b/app/controllers/contatos_controller.rb
+@@ -3,14 +3,26 @@ class ContatosController < ApplicationController
+   # GET /contatos
+   # GET /contatos.xml
+   def index
+-    @contatos = Contato.all(:all, 
+-                            :conditions => ["clinica_id = ?", session[:clinica_id]],
+-                            :order => 'ctt_nome') 
+-
++    lista = Contato.find(:all,
++                         :conditions =>["clinica_id = ?", session[:clinica_id]],                                
++                         :select => "id, ctt_nome, ctt_fone1, ctt_fone2",
++                         :order => "ctt_nome") do
++      if params[:_search] == "true"
++        ctt_nome  =~ "%#{params[:ctt_nome]}%" if params[:ctt_nome].present?
++        ctt_fone1 =~ "%#{params[:ctt_fone1]}%" if params[:ctt_fone1].present?
++        ctt_fone2 =~ "%#{params[:ctt_fone2]}%" if params[:ctt_fone2].present?     
++      end
++      paginate :page => params[:page], :per_page => params[:rows]      
++      order_by "#{params[:sidx]} #{params[:sord]}"
++    end
++    
+     respond_to do |format|
+-      format.html # index.html.erb
+-      format.xml  { render :xml => @contatos }
++      format.html
++      format.json { render :json => lista.to_jqgrid_json([:id, :ctt_nome, :ctt_fone1, :ctt_fone2], 
++        params[:page], params[:rows], lista.size) }
+     end
++    
++    
+   end
+ 
+   # GET /contatos/1
+@@ -93,4 +105,10 @@ class ContatosController < ApplicationController
+     
+     redirect_to(:controller => :contatos, :action => :index)
+   end
++  
++  def remover_favoritos
++    @favorito = Meuscontato.first(:conditions => ["contato_id = ? and usuario_id = ?", session[:usuario_id], params[:contato_id]])
++    @favorito.destroy
++    redirect_to(:controller => :contatos, :action => :index)
++  end
+ end
+-- 
+1.7.0.4
+

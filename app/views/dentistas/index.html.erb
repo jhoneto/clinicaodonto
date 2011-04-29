@@ -1,34 +1,71 @@
-<div id="joinhead" class="joinhead">
-    <h1>Lista de dentistas</h1>
-    <table width="400">
-        <tr>
-            <th>
-                Nome
-            </th>
-            
-        </tr>
-        <% @dentistas.each do |dentista| %>
-        <tr>
-            <td>
-                <%=h dentista.den_nome %>
-            </td>
-            <td>
-                <%= link_to image_tag(image_path("page.png"), :border=>0, :title=>"Visualizar"), dentista %>
-            </td>
-            <td>
-                <%= link_to image_tag(image_path("page_edit.png"), :border=>0, :title=>"Alterar"), edit_dentista_path(dentista) %>
-            </td>
-            <td>
-                <%= link_to image_tag(image_path("page_delete.png"), :border=>0, :title=>"Excluir"), dentista, :confirm => 'Confirma a exclusão?', :method => :delete %>
-            </td>
-			<td>
-				<%= link_to image_tag(image_path("time.png"), :border=>0, :title=>"Horários"), :controller => "horarios", :action => "index", :dentistaid => dentista.id%>
-			</td>
-        </tr>
-        <% end %>
-    </table>
-    <br/>
-    <% link_to new_dentista_path do %>
-	  <%= image_tag(image_path("page_add.png")) %> Novo
-	<% end %>
+<script>
+    
+    $(function(){
+        $("#btnNew").button({
+            label: "Novo",
+            icons: {
+                primary: "newIcon"
+            }
+        
+        }).click(function(){
+            location.href = '/dentistas/new';
+        });
+        
+        $("#btnEdit").button({
+            label: "Editar",
+            icons: {
+                primary: "editIcon"
+            }
+        
+        }).click(function(){
+            var id = jQuery("#lstdentistas").getGridParam('selrow');
+            if (id != null) {
+                location.href = '/dentistas/' + id + '/edit';
+            }
+            else {
+                alert("Selecione um registro");
+            }
+        });
+        
+        $("#btnDel").button({
+            label: "Remover",
+            icons: {
+                primary: "deleteIcon"
+            }
+        
+        }).click(function(){
+			var id = jQuery("#lstdentistas").getGridParam('selrow');
+            if (id != null) {
+                if (confirm('Confirma a exclusão?')) {                    
+                    $.destroy({
+                        url: '/dentistas/' + id,
+                        beforeSend: function(xhr){
+                            // do something unusual
+                        }
+                        
+                    });
+                    location.href = '/dentistas';
+                }
+            } else {
+				alert("Selecione um registro");
+			}
+        });
+        
+    })
+</script>
+<h1>Lista de dentistas</h1>
+<div class="fg-toolbar ui-widget-header ui-corner-all ui-helper-clearfix">
+    <button id="btnNew" hint="Novo" title="Novo" class="fg-button ui-state-default ui-corner-left">
+    </button>
+    <button id="btnEdit" hint="Editar" class="btnToolBar" title="Editar" class="fg-button ui-state-default ui-corner-left">
+    </button>
+    <button id="btnDel" hint="Remover" class="btnToolBar" title="Excluir" class="fg-button ui-state-default ui-corner-left">
+    </button>
 </div>
+<%= jqgrid("", "lstdentistas", "/dentistas",
+[
+{ :field => "id", :label => "ID", :width => 35, :resizable => false },
+{ :field => "den_nome", :label => "Nome", :width => 650 }
+],
+{:height => 300}
+) %>

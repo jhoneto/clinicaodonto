@@ -1,0 +1,53 @@
+<%= jqgrid("Agenda", "agenda", "/consultas",
+	[
+		 { :field => "id", :label => "ID", :width => 35, :resizable => false },
+         { :field => "con_hora", :label => "Hora" },
+         { :field => "dentista_id", :label => "Dentista", :editoptions => { :data => [Dentista.all, :id, :den_nome] } },
+         { :field => "paciente_id", :label => "Paciente" }	
+	]
+) %>
+
+<!--
+<div id="joinhead" class="joinhead">
+    <h1>Agenda de consultas</h1>
+    <table>
+        <tr>            
+            <th>
+                Status
+            </th>
+			<th>
+                Data
+            </th>
+			<th>
+                Paciente
+            </th>
+            <th>
+                Hora
+            </th>                
+        </tr>
+		<%= select_tag "Dentista", options_from_collection_for_select(@dentista, "id", "den_nome")%>
+        <% @consultas.each do |consulta| %>
+        <tr>
+        	<td>
+                <%=h consulta.con_status %>
+            </td>
+            <td>
+                <%=h consulta.con_data %>
+            </td>			
+			<td>
+                <%=h consulta.paciente.pac_nome %>
+            </td>
+            <td>
+                <%=h consulta.con_hora %>
+            </td>         
+            <td>
+                <%= link_to 'Show', consulta %>
+            </td>            
+        </tr>
+        <% end %>
+    </table>
+    <br/>
+    <%= link_to 'New consulta', new_consulta_path %>
+</div>
+-->
+

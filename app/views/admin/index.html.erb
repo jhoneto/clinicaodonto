@@ -1,61 +1,49 @@
+<h1>Acesse Já</h1>
+<%= link_to "(não é cadastrado click aqui)", :controller => :usuarios, :action=>:new, :novo=> "1" %>
 
+<% form_for :usuario, :url => { :action => :login } do |form| %>
+<table>
+    <tr>
+        <td>
+            ID clínica
+        </td>
+        <td>
+            <%= form.text_field :clinica_id %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Login
+        </td>
+        <td>
+            <%= form.text_field :usu_login %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Senha
+        </td>
+        <td>
+            <%= form.password_field :usu_senha %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        </td>
+        <td align="right">
+            <input id="submit" value="Login" size="30" type="submit" class="button">
+        </td>
+    </tr>
+</table><% end %>
+<!--
+<div id="join" class="join">
+<div id="joinimg" class="joinimg">
+<img src="images/joinnowpic.gif">
+</div>
+<div id="joinhead" class="joinhead">
 
-<div id="join" class="join">
-    <div id="joinimg" class="joinimg">
-        <img src="images/joinnowpic.gif">
-    </div>
-    <div id="joinhead" class="joinhead">
-        <h1>Como funciona?</h1>
-        <div id="jointext" class="jointext">
-            <p>
-                Lorem IpsumLorem ipsum dolor sit amet, consectetuer adipiscing elit. In nec eros. Nullam lobortis sodales erat. Quisque imperdiet dui at lorem. Suspendisse aliquam, lorem quis laoreet sollicitudin, nisl urna lobortis urna, eget congue lacus augue sit amet turpis. Donec eu tellus elementum dolor consequat adipiscing. Nam enim.
-            </p>
-        </div>
-    </div>
+<div id="login" class="login">
 </div>
-<div id="join" class="join">
-    <div id="joinimg" class="joinimg">
-        <img src="images/joinnowpic.gif">
-    </div>
-    <div id="joinhead" class="joinhead">
-        <h1>Acesse Já</h1>
-        <%= link_to "(não é cadastrado click aqui)", :controller => :usuarios, :action=>:new, :novo=> "1" %>
-        <div id="login" class="login">
-          <% form_for :usuario, :url => { :action => :login } do |form| %>
-            <table>
-                <tr>
-                    <td>
-                        ID clínica
-                    </td>
-                    <td>
-                    	<%= form.text_field :clinica_id %>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Login
-                    </td>
-                    <td>
-                        <%= form.text_field :usu_login %>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Senha
-                    </td>
-                    <td>
-                        <%= form.password_field :usu_senha %>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    </td>
-                    <td align="right">
-                        <input id="submit" value="Login" size="30" type="submit" class="button">
-                    </td>
-                </tr>
-            </table>
-			<% end %>
-        </div>
-    </div>
 </div>
+</div>
+-->

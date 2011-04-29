@@ -1,0 +1,50 @@
+<script>
+    function novo(){
+        location.href = '/pacientes/new';
+    }
+    
+    function editar(){
+        var id = jQuery("#lstpacientes").getGridParam('selrow');
+        location.href = '/pacientes/' + id + '/edit';
+    }
+    
+    function excluir(){
+        var id = jQuery("#lstpacientes").getGridParam('selrow');
+        $.destroy({
+            url: '/pacientes/' + id,
+            beforeSend: function(xhr){
+                // do something unusual
+            }
+            
+        });
+        location.href = '/pacientes';
+    }
+</script>
+<div id="joinhead" class="joinhead">
+    <h1>Lista de pacientes</h1>
+    <span id="toolbar" class="ui-widget-header ui-corner-all">
+        <button id="btnNew" hint="Novo" class="btnToolBar" title="Novo" onClick="novo()">
+            <%= image_tag(image_path("page_add.png")) %>
+        </button>
+        <button id="btnEdit" hint="Alterar" class="btnToolBar" title="Alterar" onclick="editar()">
+            <%= image_tag(image_path("page_edit.png")) %>
+        </button>
+        <button id="btndel" hint="Excluir" class="btnToolBar" title="Excluir" onclick="excluir()">
+            <%= image_tag(image_path("page_delete.png")) %>
+        </button>
+    </span>
+    <!--
+    -->
+    <%= jqgrid("", "lstpacientes", "/pacientes",
+    [
+    { :field => "id", :label => "ID", :width => 35, :resizable => false },
+    { :field => "pac_nome", :label => "Paciente" },
+    { :field => "pac_fone", :label => "Fone" },
+    { :field => "pac_celular", :label => "Celular" }
+    ],
+    { :add => true}
+    ) %>
+    <br>
+    <% link_to new_paciente_path do %>
+    <%= image_tag(image_path("page_add.png")) %>Novo<% end %>
+</div>

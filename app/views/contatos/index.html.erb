@@ -1,49 +1,76 @@
-<div id="joinhead" class="joinhead">
-    <h1>Lista contatos</h1>
-    <table width="400">
-        <tr>
-            <th>
-                Nome
-            </th>
-            <th>
-                Fone1
-            </th>
-            <th>
-                Fone2
-            </th>
-        </tr>
-        <% @contatos.each do |contato| %>
-        <tr>
-            <td>
-                <%=h contato.ctt_nome %>
-            </td>
-            <td>
-                <%=h contato.ctt_fone1 %>
-            </td>
-            <td>
-                <%=h contato.ctt_fone2 %>
-            </td>
-            <td>
-                <%=h contato.ctt_obs %>
-            </td>
-			
-			<td>
-                <%= link_to image_tag(image_path("page.png"), :border=>0, :title=>"Visualizar"), contato %>
-            </td>
-            <td>
-                <%= link_to image_tag(image_path("page_edit.png"), :border=>0, :title=>"Alterar"), edit_contato_path(contato) %>
-            </td>
-            <td>
-                <%= link_to image_tag(image_path("page_delete.png"), :border=>0, :title=>"Excluir"), contato, :confirm => 'Confirma a exclusão?', :method => :delete %>
-            </td>
-			<td>
-                <%= link_to image_tag(image_path("star_gray.png"), :border=>0, :title=>"Favoritos"), :controller => "contatos", :action => "adicionar_favoritos", :contato_id => contato.id  %>
-            </td>
-        </tr>
-        <% end %>
-    </table>
-    <br/>
-    <% link_to new_contato_path do %>
-		<%= image_tag(image_path("page_add.png")) %>Novo
-	<% end %>
+<script>
+    
+    $(function(){
+        $("#btnNew").button({
+            label: "Novo",
+            icons: {
+                primary: "newIcon"
+            }
+        
+        }).click(function(){
+            location.href = '/contatos/new';
+        });
+        
+        $("#btnEdit").button({
+            label: "Editar",
+            icons: {
+                primary: "editIcon"
+            }
+        
+        }).click(function(){
+            var id = jQuery("#lstcontatos").getGridParam('selrow');
+            if (id != null) {
+                location.href = '/contatos/' + id + '/edit';
+            }
+            else {
+                alert("Selecione um registro");
+            }
+        });
+        
+        $("#btnDel").button({
+            label: "Remover",
+            icons: {
+                primary: "deleteIcon"
+            }
+        
+        }).click(function(){
+			var id = jQuery("#lstcontatos").getGridParam('selrow');
+            if (id != null) {
+                if (confirm('Confirma a exclusão?')) {                    
+                    $.destroy({
+                        url: '/contatos/' + id,
+                        beforeSend: function(xhr){
+                            // do something unusual
+                        }
+                        
+                    });
+                    location.href = '/contatos';
+                }
+            } else {
+				alert("Selecione um registro");
+			}
+        });
+        
+    })
+</script>
+<h1>Lista de contatos</h1>
+<div class="fg-toolbar ui-widget-header ui-corner-all ui-helper-clearfix">
+    <button id="btnNew" hint="Novo" title="Novo" class="fg-button ui-state-default ui-corner-left">
+    </button>
+    <button id="btnEdit" hint="Editar" class="btnToolBar" title="Editar" class="fg-button ui-state-default ui-corner-left">
+    </button>
+    <button id="btnDel" hint="Remover" class="btnToolBar" title="Excluir" class="fg-button ui-state-default ui-corner-left">
+    </button>
 </div>
+
+<%= jqgrid("", "lstcontatos", "/contatos",
+[
+{ :field => "id", :label => "ID", :width => 35, :resizable => false },
+{ :field => "ctt_nome", :label => "Nome", :width => 350 },
+{ :field => "ctt_fone1", :label => "Fone 1" },
+{ :field => "ctt_fone2", :label => "Fone 2" }
+],
+{:height => 300}
+) %>
+
+

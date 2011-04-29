@@ -1,0 +1,9 @@
+Meus contatos <br />
+<%= jqgrid("Meus contatos", "meuscontatos", "/home/index",
+	[
+		 { :field => "id", :label => "ID", :width => 35, :resizable => false },
+         { :field => "ctt_nome", :label => "Contato" },
+         { :field => "ctt_fone1", :label => "Fone 1" },
+         { :field => "ctt_fone2", :label => "Fone 2" }	
+	]
+) %>

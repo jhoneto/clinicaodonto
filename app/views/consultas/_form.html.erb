@@ -1,0 +1,32 @@
+<%remote_form_for @consulta, :url => {:action => :create}, :before => "$('#creating_events').show();", :complete => "$('#creating_events').hide();" do |f| %>
+<p>
+  Paciente
+  <br/>
+  <%=f.text_field :con_paciente %>
+</p>
+<p>
+  Telefone
+  <br/>
+  <%= masked_text_field(:consulta, :con_fone, :mask => :phone) %> 
+</p>
+<p>
+  Descrição
+  <br/>
+  <%=f.text_area :con_desc, :rows => 4, :cols => 30 %>
+</p>
+<p>
+  Início
+  <br/>
+  <%=f.datetime_select :con_datahoraini %>
+</p>
+<p>
+  Fim
+  <br/>
+  <%=f.datetime_select :con_datahorafim %>
+</p>
+<%=f.hidden_field :id, :value => @consulta.id%>
+<%=f.hidden_field :commit_button, :value => ""%>
+<p>
+  <%=f.submit 'Create' %> <span id = "creating_events" style = "display:none;">Creating, Please wait...</span>
+</p>
+<%end %>

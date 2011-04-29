@@ -1,25 +1,44 @@
-<div id="joinhead" class="joinhead" >
-<h1>Ficha do(a) paciente <b><i><%= @paciente.pac_nome%></i></b></h1> 
-<table width="600">
-  <tr>
-    <th>Dentista</th>
-    <th>Data de registro</th>
-    <th>Detalhe</th>
-  </tr>
-
-<% @fichas.each do |ficha| %>
-  <tr>
-    <td><%=h ficha.dentista.den_nome %></td>
-    <td><%=h ficha.fic_data %></td>
-    <td><%=h ficha.fic_desc %></td>
-    <td><%= link_to 'Show', ficha %></td>
-    <td><%= link_to 'Edit', edit_ficha_path(ficha) %></td>
-    <td><%= link_to 'Destroy', ficha, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New ficha', new_ficha_path %>
+<div id="joinhead" class="joinhead">
+    <h1>Ficha do(a) paciente:</h1>
+    <b><i><%= @paciente.pac_nome %></i></b>
+    <table width="600">
+        <tr>
+            <th>
+                Dentista
+            </th>
+            <th>
+                Data de registro
+            </th>
+            <th>
+                Detalhe
+            </th>
+        </tr>
+        <% @fichas.each do |ficha| %>
+        <tr>
+            <td>
+                <%=h ficha.dentista.den_nome %>
+            </td>
+            <td>
+                <%=h ficha.fic_data %>
+            </td>
+            <td>
+                <%=h ficha.fic_desc %>
+            </td>
+            <td>
+                <%= link_to image_tag(image_path("page.png"), :border=>0, :title=>"Visualizar"), ficha %>
+            </td>
+            <td>
+                <%= link_to image_tag(image_path("page_edit.png"), :border=>0, :title=>"Alterar"),edit_ficha_path(ficha) %>
+            </td>
+            <td>
+                <%= link_to image_tag(image_path("page_delete.png"), :border=>0, :title=>"Excluir"), ficha, :confirm => 'Confirma a exclusão?', :method => :delete %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+	 <br/>
+    <% link_to new_ficha_path do %>
+	  <%= image_tag(image_path("page_add.png")) %> Novo
+	<% end %>
+    
 </div>
